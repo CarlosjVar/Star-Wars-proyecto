@@ -2,6 +2,7 @@
 import xml.etree.ElementTree as ET
 import requests
 from xml.dom import minidom
+import re
 
 
 #Variables Globales
@@ -66,12 +67,24 @@ def crearXML():
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
-        personaje=ET.SubElement(matriz,lista[0],infoP=lista)
+        if re.search(" ",lista[0]):
+            nombre=lista[0].replace(" ","_")
+        else:
+            nombre=lista[0]
+        personaje=ET.SubElement(matriz,nombre,)
+        name=ET.SubElement(personaje,"Name",infoP=lista[0])
+        for frase in lista[1]:
+            phrase = ET.SubElement(personaje, "Phrases",frases=frase)
+        for ide in lista[2]:
+            ID = ET.SubElement(personaje,"IDs",ID=str(ide))
+        Code = ET.SubElement(personaje,"Code",Code=str(lista[3]))
+
     #Diccionario=ET.SubElement(root,"Diccionario")
     tree=ET.ElementTree(root)
     ET.dump(root)
-   #print(prettify(tree))
-    tree.write("Backup.xml")
+    xml=(prettify(root))
+    with open('Backup.xml', "w") as file:
+        file.write(xml)
 
     return
 def prettify(elem):

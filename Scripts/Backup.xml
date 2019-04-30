@@ -1,1 +1,17 @@
-<Backup><Matriz><Qui-Gon Jinn infoP="['Qui-Gon Jinn', ['Secrets must be exposed when found. Detours must be taken when encountered. And if you are the one who stands at the crossroads or the place of concealment, you must never leave it to another to act in your place.'], [43], '#Q001-N']" /><Darth Vader infoP="['Darth Vader', ['I find your lack of faith disturbing.'], [8], '#D002-R']" /></Matriz></Backup>
+<?xml version="1.0" ?>
+<Backup>
+  <Matriz>
+    <Obi-Wan_Kenobi>
+      <Name infoP="Obi-Wan Kenobi"/>
+      <Phrases frases="You were my brother, Anakin. I loved you."/>
+      <IDs ID="25"/>
+      <Code Code="#O001-I"/>
+    </Obi-Wan_Kenobi>
+    <Yoda>
+      <Name infoP="Yoda"/>
+      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
+      <IDs ID="28"/>
+      <Code Code="#Y002-A"/>
+    </Yoda>
+  </Matriz>
+</Backup>
