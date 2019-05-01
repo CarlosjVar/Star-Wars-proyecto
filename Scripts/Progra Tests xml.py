@@ -78,8 +78,13 @@ def crearXML():
         for ide in lista[2]:
             ID = ET.SubElement(personaje,"IDs",ID=str(ide))
         Code = ET.SubElement(personaje,"Code",Code=str(lista[3]))
-
-    #Diccionario=ET.SubElement(root,"Diccionario")
+    Diccionario=ET.SubElement(root,"Diccionario")
+    for key in DiccionarioPersonajes:
+        llave=str(key).replace(" ","_")
+        personaje=ET.SubElement(Diccionario,llave)
+        for i in range(1):
+            codigoP=ET.SubElement(personaje,"App_Code",Code=DiccionarioPersonajes[key][i])
+            llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
     tree=ET.ElementTree(root)
     ET.dump(root)
     xml=(prettify(root))

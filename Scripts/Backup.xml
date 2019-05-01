@@ -1,17 +1,101 @@
 <?xml version="1.0" ?>
 <Backup>
   <Matriz>
-    <Obi-Wan_Kenobi>
-      <Name infoP="Obi-Wan Kenobi"/>
-      <Phrases frases="You were my brother, Anakin. I loved you."/>
-      <IDs ID="25"/>
-      <Code Code="#O001-I"/>
-    </Obi-Wan_Kenobi>
     <Yoda>
       <Name infoP="Yoda"/>
-      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
-      <IDs ID="28"/>
-      <Code Code="#Y002-A"/>
+      <Phrases frases="Train yourself to let go of everything you fear to lose."/>
+      <Phrases frases="Always pass on what you have learned."/>
+      <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
+      <IDs ID="29"/>
+      <IDs ID="32"/>
+      <IDs ID="36"/>
+      <Code Code="#Y001-A"/>
     </Yoda>
+    <Ahsoka_Tano>
+      <Name infoP="Ahsoka Tano"/>
+      <Phrases frases="I am no Jedi."/>
+      <IDs ID="47"/>
+      <Code Code="#A002-O"/>
+    </Ahsoka_Tano>
+    <Nute_Gunray>
+      <Name infoP="Nute Gunray"/>
+      <Phrases frases="In time, the suffering of your people will persuade you to see our point of view."/>
+      <IDs ID="2"/>
+      <Code Code="#N003-Y"/>
+    </Nute_Gunray>
+    <C-3PO>
+      <Name infoP="C-3PO"/>
+      <Phrases frases="Oh, my dear friend. How I've missed you."/>
+      <IDs ID="49"/>
+      <Code Code="#C004-O"/>
+    </C-3PO>
+    <Leia_Organa>
+      <Name infoP="Leia Organa"/>
+      <Phrases frases="You know, no matter how much we fought, I've always hated watching you leave."/>
+      <IDs ID="22"/>
+      <Code Code="#L005-A"/>
+    </Leia_Organa>
+    <Count_Dooku>
+      <Name infoP="Count Dooku"/>
+      <Phrases frases="What if I told you that the Republic was now under the control of a Dark Lord of the Sith?"/>
+      <IDs ID="17"/>
+      <Code Code="#C006-U"/>
+    </Count_Dooku>
+    <Darth_Vader>
+      <Name infoP="Darth Vader"/>
+      <Phrases frases="I find your lack of faith disturbing."/>
+      <IDs ID="8"/>
+      <Code Code="#D007-R"/>
+    </Darth_Vader>
+    <Obi-Wan_Kenobi>
+      <Name infoP="Obi-Wan Kenobi"/>
+      <Phrases frases="The Force will be with you. Always."/>
+      <IDs ID="23"/>
+      <Code Code="#O008-I"/>
+    </Obi-Wan_Kenobi>
+    <Emperor_Palpatine>
+      <Name infoP="Emperor Palpatine"/>
+      <Phrases frases="Now, young Skywalker, you will die."/>
+      <IDs ID="18"/>
+      <Code Code="#E009-E"/>
+    </Emperor_Palpatine>
   </Matriz>
+  <Diccionario>
+    <Yoda>
+      <App_Code Code="#Y001-A"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="3"/>
+    </Yoda>
+    <Ahsoka_Tano>
+      <App_Code Code="#A002-O"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Ahsoka_Tano>
+    <Nute_Gunray>
+      <App_Code Code="#N003-Y"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Nute_Gunray>
+    <C-3PO>
+      <App_Code Code="#C004-O"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </C-3PO>
+    <Leia_Organa>
+      <App_Code Code="#L005-A"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Leia_Organa>
+    <Count_Dooku>
+      <App_Code Code="#C006-U"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Count_Dooku>
+    <Darth_Vader>
+      <App_Code Code="#D007-R"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Darth_Vader>
+    <Obi-Wan_Kenobi>
+      <App_Code Code="#O008-I"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Obi-Wan_Kenobi>
+    <Emperor_Palpatine>
+      <App_Code Code="#E009-E"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Emperor_Palpatine>
+  </Diccionario>
 </Backup>
