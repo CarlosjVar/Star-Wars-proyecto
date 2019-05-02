@@ -1,17 +1,39 @@
 <?xml version="1.0" ?>
 <Backup>
   <Matriz>
-    <Yoda_-_Luke>
-      <Name infoP="Yoda / Luke"/>
-      <Phrases frases="[Luke:] I can稚 believe it. [Yoda:] That is why you fail."/>
-      <IDs ID="34"/>
-      <Code Code="#Y001-E"/>
-    </Yoda_-_Luke>
+    <Jango_Fett>
+      <Name Code="#J001-T" ID="[1]" frases="['I知 just a simple man trying to make my way in the universe.']" infoP="Jango Fett"/>
+      <Phrases frases="I知 just a simple man trying to make my way in the universe."/>
+    </Jango_Fett>
+    <Qui-Gon_Jinn>
+      <Name Code="#Q002-N" ID="[46]" frases="['The ability to speak does not make you intelligent.']" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="The ability to speak does not make you intelligent."/>
+    </Qui-Gon_Jinn>
+    <K-2SO>
+      <Name Code="#K003-O" ID="[52]" frases="['Jyn, I値l be there for you. Cassian said I had to.']" infoP="K-2SO"/>
+      <Phrases frases="Jyn, I値l be there for you. Cassian said I had to."/>
+    </K-2SO>
+    <Yoda>
+      <Name Code="#Y004-A" ID="[28]" frases="['When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned.']" infoP="Yoda"/>
+      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
+    </Yoda>
   </Matriz>
   <Diccionario>
-    <Yoda_-_Luke>
-      <App_Code Code="#Y001-E"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="2"/>
-    </Yoda_-_Luke>
+    <Jango_Fett>
+      <App_Code Code="#J001-T"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Jango_Fett>
+    <Qui-Gon_Jinn>
+      <App_Code Code="#Q002-N"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Qui-Gon_Jinn>
+    <K-2SO>
+      <App_Code Code="#K003-O"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </K-2SO>
+    <Yoda>
+      <App_Code Code="#Y004-A"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Yoda>
   </Diccionario>
 </Backup>
