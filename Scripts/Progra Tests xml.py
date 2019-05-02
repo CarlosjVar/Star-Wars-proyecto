@@ -66,20 +66,10 @@ def crearXML():
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
-        if re.search(" ",lista[0]):
-            nombre=lista[0].replace(" ","_")
-            if re.search("/",nombre):
-                print("a")
-                nombre=nombre.replace("/","-")
-        else:
-            nombre=lista[0]
-        personaje=ET.SubElement(matriz,nombre,)
-        name=ET.SubElement(personaje,"Name",infoP=lista[0],frases=lista[1],ID=lista[2],Code=lista[3])
+        personaje=ET.SubElement(matriz,"Personaje",)
+        name=ET.SubElement(personaje,"Name",infoP=lista[0],ID=lista[2],Code=lista[3])
         for frase in lista[1]:
             phrase = ET.SubElement(personaje, "Phrases",frases=frase)
-        # for ide in lista[2]:
-        #     ID = ET.SubElement(personaje,"IDs",ID=str(ide))
-        # Code = ET.SubElement(personaje,"Code",Code=str(lista[3]))
     Diccionario=ET.SubElement(root,"Diccionario")
     for key in DiccionarioPersonajes:
         llave=str(key).replace(" ","_")
@@ -101,41 +91,27 @@ def cargarBackup():
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
-    ET.dump(tree)
-    for name in root.iter("Name"):
-        # listaFrases=[]
-        # for child2 in root.iter("Phrases"):
-        #     frase = child2.attrib.get("frases")
-        #     frase = frase.replace("", "’")
-        #     listaFrases.append(frase)
-        # print(listaFrases)
-        lista=[]
-        print("a")
-        lista.append(name.attrib.get("infoP"))
-        lista.append(name.attrib.get("frases"))
-        lista.append(name.attrib.get("ID"))
-        lista.append(name.attrib.get("Code"))
-        matrizFrases.append(lista)
-        for personaje in matrizFrases:
-            for lista in personaje[1]:
-                lista.replace("","’")
-                print(lista)
+    #ET.dump(tree)
+    for personaje in root.iter("Personaje"):
+        for name in personaje.iter("Name"):
+            lista=[]
+            listaFrases = []
+            lista.append(name.attrib.get("infoP"))
+            for frase in personaje.iter("Phrases"):
+                frase = frase.attrib.get("frases")
+                frase = frase.replace("", "’")
+                listaFrases.append(frase)
+            lista.append(listaFrases)
+            lista.append(name.attrib.get("ID"))
+            lista.append(name.attrib.get("Code"))
+            matrizFrases.append(lista)
     print(matrizFrases)
-
-
-    return root
-
-
+    return
 
 def prettify(elem):
         rough_string = ET.tostring(elem, 'utf-8')
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
-
-
-
-
-
 
 #PP
 while True:
@@ -143,11 +119,13 @@ while True:
     if opcion==1:
        montarEnMatriz()
     else:
-        print (matrizFrases)
+        #print (matrizFrases)
         #print (DiccionarioPersonajes)
         break
 #crearXML()
 cargarBackup()
+print(matrizFrases[0][1])
+
 
 
 

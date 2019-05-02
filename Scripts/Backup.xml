@@ -1,39 +1,31 @@
 <?xml version="1.0" ?>
 <Backup>
   <Matriz>
-    <Jango_Fett>
-      <Name Code="#J001-T" ID="[1]" frases="['I知 just a simple man trying to make my way in the universe.']" infoP="Jango Fett"/>
-      <Phrases frases="I知 just a simple man trying to make my way in the universe."/>
-    </Jango_Fett>
-    <Qui-Gon_Jinn>
-      <Name Code="#Q002-N" ID="[46]" frases="['The ability to speak does not make you intelligent.']" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="The ability to speak does not make you intelligent."/>
-    </Qui-Gon_Jinn>
-    <K-2SO>
-      <Name Code="#K003-O" ID="[52]" frases="['Jyn, I値l be there for you. Cassian said I had to.']" infoP="K-2SO"/>
-      <Phrases frases="Jyn, I値l be there for you. Cassian said I had to."/>
-    </K-2SO>
-    <Yoda>
-      <Name Code="#Y004-A" ID="[28]" frases="['When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned.']" infoP="Yoda"/>
-      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
-    </Yoda>
+    <Personaje>
+      <Name Code="#Y001-A" ID="[30]" infoP="Yoda"/>
+      <Phrases frases="Fear is the path to the dark side. Fear leads to anger; anger leads to hate; hate leads to suffering. I sense much fear in you."/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D002-R" ID="[8]" infoP="Darth Vader"/>
+      <Phrases frases="I find your lack of faith disturbing."/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#L003-A" ID="[19]" infoP="Leia Organa"/>
+      <Phrases frases="Help me, Obi-Wan Kenobi. You池e my only hope."/>
+    </Personaje>
   </Matriz>
   <Diccionario>
-    <Jango_Fett>
-      <App_Code Code="#J001-T"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </Jango_Fett>
-    <Qui-Gon_Jinn>
-      <App_Code Code="#Q002-N"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </Qui-Gon_Jinn>
-    <K-2SO>
-      <App_Code Code="#K003-O"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </K-2SO>
     <Yoda>
-      <App_Code Code="#Y004-A"/>
+      <App_Code Code="#Y001-A"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Yoda>
+    <Darth_Vader>
+      <App_Code Code="#D002-R"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Darth_Vader>
+    <Leia_Organa>
+      <App_Code Code="#L003-A"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Leia_Organa>
   </Diccionario>
 </Backup>
