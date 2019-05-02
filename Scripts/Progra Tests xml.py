@@ -69,6 +69,9 @@ def crearXML():
     for lista in matrizFrases:
         if re.search(" ",lista[0]):
             nombre=lista[0].replace(" ","_")
+            if re.search("/",nombre):
+                print("a")
+                nombre=nombre.replace("/","-")
         else:
             nombre=lista[0]
         personaje=ET.SubElement(matriz,nombre,)
@@ -81,7 +84,8 @@ def crearXML():
     Diccionario=ET.SubElement(root,"Diccionario")
     for key in DiccionarioPersonajes:
         llave=str(key).replace(" ","_")
-        personaje=ET.SubElement(Diccionario,llave)
+        llave=llave.replace("/","-")
+        personaje = ET.SubElement(Diccionario, llave)
         for i in range(1):
             codigoP=ET.SubElement(personaje,"App_Code",Code=DiccionarioPersonajes[key][i])
             llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
