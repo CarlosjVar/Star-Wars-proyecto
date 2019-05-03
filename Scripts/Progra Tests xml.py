@@ -13,8 +13,8 @@ contP=0
 
 def obtenerFrase ():
     respuesta=(requests.get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote")).text
-    respuesta=dict (eval(respuesta))
-    print (respuesta)
+    respuesta=dict(eval(respuesta))
+    print(respuesta)
     return respuesta
 
 def montarEnDicccionario(cita):
@@ -74,7 +74,7 @@ def crearXML():
     for key in DiccionarioPersonajes:
         llave=str(key).replace(" ","_")
         llave=llave.replace("/","-")
-        personaje = ET.SubElement(Diccionario, llave)
+        personaje = ET.SubElement(Diccionario, "Personaje")
         for i in range(1):
             codigoP=ET.SubElement(personaje,"App_Code",Code=DiccionarioPersonajes[key][i])
             llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
