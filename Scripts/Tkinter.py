@@ -83,8 +83,7 @@ def crearXML():
         personaje = ET.SubElement(Diccionario, "Personaje")
         for i in range(1):
             codigoP = ET.SubElement(personaje, "App_Code", Code=DiccionarioPersonajes[key][i])
-            llamadaAPI = ET.SubElement(personaje, "Cantidad_de_llamadas_a_la_API",
-                                       Llamadas=str(DiccionarioPersonajes[key][i + 1]))
+            llamadaAPI = ET.SubElement(personaje, "Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i + 1]))
     tree = ET.ElementTree(root)
     ET.dump(root)
     xml = (prettify(root))

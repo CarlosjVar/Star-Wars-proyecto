@@ -2,7 +2,6 @@
 import xml.etree.ElementTree as ET
 import requests
 from xml.dom import minidom
-import re
 import codecs
 #Variables Globales
 matrizFrases = []
@@ -63,6 +62,7 @@ def determinarCita ():
 def crearXML():
     global matrizFrases
     global DiccionarioPersonajes
+    global contP
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
@@ -78,6 +78,7 @@ def crearXML():
         for i in range(1):
             codigoP=ET.SubElement(personaje,"App_Code",Code=DiccionarioPersonajes[key][i])
             llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
+    variables=ET.SubElement(root,"Variables",contador=str(contP))
     tree=ET.ElementTree(root)
     ET.dump(root)
     xml=(prettify(root))
@@ -114,17 +115,17 @@ def prettify(elem):
         return reparsed.toprettyxml(indent="  ")
 
 #PP
-# while True:
-#     opcion = int(input ("Que quiere hacer?: "))
-#     if opcion==1:
-#        montarEnMatriz()
-#     else:
-#         #print (matrizFrases)
-#         #print (DiccionarioPersonajes)
-#         break
-# crearXML()
-# cargarBackup()
-# print(matrizFrases[0][1])
+while True:
+    opcion = int(input ("Que quiere hacer?: "))
+    if opcion==1:
+       montarEnMatriz()
+    else:
+        #print (matrizFrases)
+        #print (DiccionarioPersonajes)
+        break
+crearXML()
+#cargarBackup()
+#print(matrizFrases[0][1])
 
 
 
