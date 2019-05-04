@@ -114,17 +114,17 @@ def prettify(elem):
         return reparsed.toprettyxml(indent="  ")
 
 #PP
-while True:
-    opcion = int(input ("Que quiere hacer?: "))
-    if opcion==1:
-       montarEnMatriz()
-    else:
-        #print (matrizFrases)
-        #print (DiccionarioPersonajes)
-        break
-#crearXML()
-cargarBackup()
-print(matrizFrases[0][1])
+# while True:
+#     opcion = int(input ("Que quiere hacer?: "))
+#     if opcion==1:
+#        montarEnMatriz()
+#     else:
+#         #print (matrizFrases)
+#         #print (DiccionarioPersonajes)
+#         break
+# crearXML()
+# cargarBackup()
+# print(matrizFrases[0][1])
 
 
 
