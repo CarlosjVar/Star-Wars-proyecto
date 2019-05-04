@@ -113,18 +113,29 @@ def prettify(elem):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
+def mostrarMasBuscado:
+    global DiccionarioPersonajes
+    mayor=0
+    for key in DiccionarioPersonajes:
+        if DiccionarioPersonajes[key][1]>mayor:
+            mayor=DiccionarioPersonajes[key][1]
+            resul=""
+    return resul 
+        
+    
+
 #PP
 while True:
     opcion = int(input ("Que quiere hacer?: "))
     if opcion==1:
        montarEnMatriz()
     else:
-        #print (matrizFrases)
-        #print (DiccionarioPersonajes)
+        print (matrizFrases)
+        print (DiccionarioPersonajes)
         break
 #crearXML()
-cargarBackup()
-print(matrizFrases[0][1])
+#cargarBackup()
+#print(matrizFrases[0][1])
 
 
 
