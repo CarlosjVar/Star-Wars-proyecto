@@ -59,6 +59,7 @@ def determinarCita ():
             cita=cita[0].split (" - ")
     cita.append(diccionario["id"])
     return cita
+
 def crearXML():
     global matrizFrases
     global DiccionarioPersonajes
@@ -82,6 +83,7 @@ def crearXML():
     with open('Backup.xml', "w") as file:
         file.write(xml)
     return
+
 def cargarBackup():
     global matrizFrases
     global DiccionarioPersonajes
@@ -105,8 +107,6 @@ def cargarBackup():
         for info in personaje.iter("App_Code"):
             for contador in personaje.iter("Cantidad_de_llamadas_a_la_API"):
                 DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),int(contador.attrib.get("Llamadas"))]
-
-
     print(matrizFrases)
     print(DiccionarioPersonajes)
     return
@@ -116,6 +116,18 @@ def prettify(elem):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
+def definirMayor ():
+    global DiccionarioPersonajes
+    mayor=0
+    resul=""
+    for key in DiccionarioPersonajes:
+        if DiccionarioPersonajes[key][1]>mayor:
+            mayor=DiccionarioPersonajes[key][1]
+            resul=key
+        elif DiccionarioPersonajes[key][1]==mayor:
+            resul=resul+", "+key
+    return "El o los personajes con más resultados: "+resul
+            
 #PP
 while True:
     opcion = int(input ("Que quiere hacer?: "))
@@ -125,8 +137,9 @@ while True:
         #print (matrizFrases)
         print (DiccionarioPersonajes)
         break
+print(definirMayor())
 #crearXML()
-cargarBackup()
+#cargarBackup()
 #print(matrizFrases[0][1])
 
 
