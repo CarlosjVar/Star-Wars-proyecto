@@ -2,49 +2,39 @@
 <Backup>
   <Matriz>
     <Personaje>
-      <Name Code="#H001-O" ID="[7]" infoP="Han Solo"/>
-      <Phrases frases="Never tell me the odds!"/>
+      <Name Code="#A001-O" ID="[47]" infoP="Ahsoka Tano"/>
+      <Phrases frases="I am no Jedi."/>
     </Personaje>
     <Personaje>
-      <Name Code="#Y002-A" ID="[28, 32, 27]" infoP="Yoda"/>
-      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
-      <Phrases frases="Always pass on what you have learned."/>
-      <Phrases frases="Do. Or do not. There is no try."/>
+      <Name Code="#Q002-N" ID="[43]" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="Secrets must be exposed when found. Detours must be taken when encountered. And if you are the one who stands at the crossroads or the place of concealment, you must never leave it to another to act in your place."/>
     </Personaje>
     <Personaje>
-      <Name Code="#Q003-N" ID="[41]" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="There’s always a bigger fish."/>
+      <Name Code="#L003-A" ID="[21]" infoP="Leia Organa"/>
+      <Phrases frases="Why, you stuck-up, half-witted, scruffy-looking nerf herder!"/>
     </Personaje>
     <Personaje>
-      <Name Code="#R004-Y" ID="[48]" infoP="Rey"/>
-      <Phrases frases="The garbage’ll do!"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#O005-I" ID="[26]" infoP="Obi-Wan Kenobi"/>
-      <Phrases frases="If you define yourself by your power to take life, your desire to dominate, to possess, then you have nothing."/>
+      <Name Code="#Y004-A" ID="[36]" infoP="Yoda"/>
+      <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
-      <App_Code Code="#H001-O" Key="Han Solo"/>
+      <App_Code Code="#A001-O" Key="Ahsoka Tano"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Y002-A" Key="Yoda"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="3"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#Q003-N" Key="Qui-Gon Jinn"/>
+      <App_Code Code="#Q002-N" Key="Qui-Gon Jinn"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#R004-Y" Key="Rey"/>
+      <App_Code Code="#L003-A" Key="Leia Organa"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#O005-I" Key="Obi-Wan Kenobi"/>
+      <App_Code Code="#Y004-A" Key="Yoda"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
   </Diccionario>
-  <Variables contador="5"/>
+  <Variables contador="4"/>
 </Backup>
