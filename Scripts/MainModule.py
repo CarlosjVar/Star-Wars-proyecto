@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import requests
 from xml.dom import minidom
 import codecs
+import itertools
 #Variables Globales
 matrizFrases = []
 DiccionarioPersonajes = {}
@@ -76,9 +77,9 @@ def crearXML():
         personaje = ET.SubElement(Diccionario, "Personaje")
         for i in range(1):
             codigoP=ET.SubElement(personaje,"App_Code",Key=key,Code=DiccionarioPersonajes[key][i])
-            llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
+            llamadaAPI=ET.SubElement(personaje,"Llamadas",Llamadas=str(DiccionarioPersonajes[key][i+1]))
+            print(DiccionarioPersonajes[key][i+1])
     variables=ET.SubElement(root,"Variables",contador=str(contP))
-    tree=ET.ElementTree(root)
     xml=(prettify(root))
     with open('Backup.xml', "w") as file:
         file.write(xml)
@@ -103,18 +104,31 @@ def cargarBackup():
             lista.append(name.attrib.get("ID"))
             lista.append(name.attrib.get("Code"))
             matrizFrases.append(lista)
-    for personaje in root.iter("Diccionario"):
-        for info in personaje.iter("App_Code"):
-            for contador in personaje.iter("Cantidad_de_llamadas_a_la_API"):
-                DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),int(contador.attrib.get("Llamadas"))]
+    for diccionario in root.iter("Diccionario"):
+        for personaje in diccionario:
+            for info in personaje.findall("App_Code"):
+                name=info.attrib.get("Key")
+                code=info.attrib.get("Code")
+            for contador in personaje.findall("Llamadas"):
+                peticiones = int(contador.attrib.get("Llamadas"))
+            DiccionarioPersonajes[name]= [code,peticiones]
+
     print(matrizFrases)
     print(DiccionarioPersonajes)
+    print("se cargó")
     return
 
 def prettify(elem):
         rough_string = ET.tostring(elem, 'utf-8')
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
+def shareBackup(lista):
+    root=ET.Element("Share")
+    for frase in lista:
+        ET.SubElement(root,Frase,Phrase=frase)
+    xml = (prettify(root))
+    with open('Backup.xml', "w") as file:
+        file.write(xml)
 
 def definirMayor ():
     global DiccionarioPersonajes
@@ -138,8 +152,11 @@ while True:
         print (DiccionarioPersonajes)
         break
 print(definirMayor())
+print(DiccionarioPersonajes)
 #crearXML()
-#cargarBackup()
+cargarBackup()
+#print(definirMayor())
+print(DiccionarioPersonajes)
 #print(matrizFrases[0][1])
 
 
