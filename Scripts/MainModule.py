@@ -3,7 +3,14 @@ import xml.etree.ElementTree as ET
 import requests
 from xml.dom import minidom
 import codecs
-import itertools
+import smtplib, ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from validate_email import validate_email
+from email.mime.base import MIMEBase 
+from email import encoders
+import http.client as httplib
+
 #Variables Globales
 matrizFrases = []
 DiccionarioPersonajes = {}
@@ -12,6 +19,14 @@ contP=0
 #Definición de funciones
 
 def obtenerFrase ():
+    while True:
+        if revisarInternet()==True:
+            break
+        else:
+            x = input ("No hay una conexión a internet disponible, revise su conexión y digite 1 para devolverse"\
+                        +"o cualquier otra tecla para reintentar: ")        
+            if x == "1":
+                return False
     respuesta=(requests.get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote")).text
     respuesta=dict(eval(respuesta))
     print(respuesta)
@@ -36,6 +51,8 @@ def montarEnDicccionario(cita):
 def montarEnMatriz ():
     global matrizFrases
     cita=determinarCita()
+    if cita == False:
+        return
     diccionario=montarEnDicccionario(cita)
     for i in range(len(matrizFrases)):
         fila=matrizFrases[i]
@@ -52,6 +69,8 @@ def montarEnMatriz ():
     
 def determinarCita ():
     diccionario = obtenerFrase()
+    if diccionario == False:
+        return False
     cita = diccionario["starWarsQuote"]
     cita = cita.split(" — ")
     if len (cita)==1:
@@ -112,10 +131,6 @@ def cargarBackup():
             for contador in personaje.findall("Llamadas"):
                 peticiones = int(contador.attrib.get("Llamadas"))
             DiccionarioPersonajes[name]= [code,peticiones]
-
-    print(matrizFrases)
-    print(DiccionarioPersonajes)
-    print("se cargó")
     return
 
 def prettify(elem):
@@ -140,24 +155,88 @@ def definirMayor ():
             resul=key
         elif DiccionarioPersonajes[key][1]==mayor:
             resul=resul+", "+key
-    return "El o los personajes con más resultados: "+resul
+    if mayor==0:
+        return "No se han solicitado frases aún"
+    else:
+        return "El o los personajes con más resultados: "+resul
+
+def enviarCorreo ():
+    while True:
+        if revisarInternet()==True:
+            break
+        else:
+            x = input ("No hay una conexión a internet disponible, revise su conexión, digite 1 para devolverse o cualquier otra tecla para reintentar: ")        
+            if x == "1":
+                return
+    context = ssl.create_default_context()
+    while True:
+        destinatario=input("Digite el correo electrónico del destinatario: ")
+        if validate_email(destinatario):
+            break
+        else:
+            print ("El correo brindado no tiene el formato de una dirección válida, favor reingresarlo")
+    msg = MIMEMultipart()
+    msg['From'] = "lagalleradepython@gmail.com"
+    msg['To'] = destinatario
+    msg['Subject'] = "Citas de StarWars"
+    mensaje = "Alguien desea compartir las siguientes citas de StarWars contigo"
+    msg.attach(MIMEText(mensaje, 'plain'))
+    filename = "Backup.xml"
+    attachment = open("Backup.xml", "rb")
+    p = MIMEBase('application', 'octet-stream')
+    p.set_payload((attachment).read())
+    encoders.encode_base64(p)
+    p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+    msg.attach(p)
+    text = msg.as_string()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        try:
+            server.login("lagalleradepython@gmail.com", "Joseph20*")
+            server.sendmail("lagalleradepython@gmail.com",destinatario,text)
+        except UnicodeEncodeError:
+            print("Dado que la dirección de destino contiene el caracter 'ñ', el mensaje no se ha enviado")
+            return
+    print ("Mensaje Enviado")
+    return
+
+
+def revisarInternet():
+    conn = httplib.HTTPConnection("www.google.com", timeout=4)
+    try:
+        conn.request("HEAD", "/")
+        conn.close()
+        return True
+    except:
+        conn.close()
+        return False
             
 #PP
+print  ("1 - Sacar frase")
+print  ("2 - Sacar mayor")
+print  ("3 - Sacar diccionario")
+print  ("4 - Sacar matriz")
+print  ("5 - Guardar bakcup")
+print  ("6 - Cargar bakcup")
+print  ("7 - Enviar bakcup")
+print  ("Otra cosa - Salir")
 while True:
     opcion = int(input ("Que quiere hacer?: "))
     if opcion==1:
        montarEnMatriz()
-    else:
-        #print (matrizFrases)
+    elif opcion==2:
+        print(definirMayor())
+    elif opcion==3:
         print (DiccionarioPersonajes)
-        break
-print(definirMayor())
-print(DiccionarioPersonajes)
-#crearXML()
-cargarBackup()
-#print(definirMayor())
-print(DiccionarioPersonajes)
-#print(matrizFrases[0][1])
+    elif opcion==4:
+        print (matrizFrases)
+    elif opcion==5:
+        crearXML ()
+    elif opcion==6:
+        cargarBackup ()
+    elif opcion==7:
+        enviarCorreo ()
+    else:
+        break 
 
 
 

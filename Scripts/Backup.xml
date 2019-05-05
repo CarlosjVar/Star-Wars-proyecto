@@ -2,24 +2,39 @@
 <Backup>
   <Matriz>
     <Personaje>
+<<<<<<< HEAD
       <Name Code="#L001-A" ID="[19]" infoP="Leia Organa"/>
       <Phrases frases="Help me, Obi-Wan Kenobi. You’re my only hope."/>
     </Personaje>
     <Personaje>
       <Name Code="#D002-R" ID="[9]" infoP="Darth Vader"/>
       <Phrases frases="No. I am your father."/>
+=======
+      <Name Code="#A001-O" ID="[47]" infoP="Ahsoka Tano"/>
+      <Phrases frases="I am no Jedi."/>
     </Personaje>
     <Personaje>
-      <Name Code="#Q003-N" ID="[41]" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="There’s always a bigger fish."/>
+      <Name Code="#Q002-N" ID="[43]" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="Secrets must be exposed when found. Detours must be taken when encountered. And if you are the one who stands at the crossroads or the place of concealment, you must never leave it to another to act in your place."/>
+>>>>>>> master
     </Personaje>
     <Personaje>
+      <Name Code="#L003-A" ID="[21]" infoP="Leia Organa"/>
+      <Phrases frases="Why, you stuck-up, half-witted, scruffy-looking nerf herder!"/>
+    </Personaje>
+    <Personaje>
+<<<<<<< HEAD
       <Name Code="#O004-I" ID="[24]" infoP="Obi-Wan Kenobi"/>
       <Phrases frases="Well, if droids could think, there’d be none of us here, would there?"/>
+=======
+      <Name Code="#Y004-A" ID="[36]" infoP="Yoda"/>
+      <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
+>>>>>>> master
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
+<<<<<<< HEAD
       <App_Code Code="#L001-A" Key="Leia Organa"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
@@ -34,6 +49,22 @@
     <Personaje>
       <App_Code Code="#O004-I" Key="Obi-Wan Kenobi"/>
       <Llamadas Llamadas="1"/>
+=======
+      <App_Code Code="#A001-O" Key="Ahsoka Tano"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Q002-N" Key="Qui-Gon Jinn"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#L003-A" Key="Leia Organa"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Y004-A" Key="Yoda"/>
+      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
+>>>>>>> master
     </Personaje>
   </Diccionario>
   <Variables contador="4"/>
