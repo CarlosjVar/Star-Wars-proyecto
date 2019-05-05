@@ -85,11 +85,9 @@ def crearXML():
 def cargarBackup():
     global matrizFrases
     global DiccionarioPersonajes
-    string_data = open('Backup.xml')
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
-    #ET.dump(tree)
     for personaje in root.iter("Personaje"):
         for name in personaje.iter("Name"):
             lista=[]
@@ -106,7 +104,8 @@ def cargarBackup():
     for personaje in root.iter("Diccionario"):
         for info in personaje.iter("App_Code"):
             for contador in personaje.iter("Cantidad_de_llamadas_a_la_API"):
-                DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),contador.attrib.get("Llamadas")]
+                DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),int(contador.attrib.get("Llamadas"))]
+
 
     print(matrizFrases)
     print(DiccionarioPersonajes)
@@ -126,8 +125,8 @@ while True:
         #print (matrizFrases)
         print (DiccionarioPersonajes)
         break
-crearXML()
-#cargarBackup()
+#crearXML()
+cargarBackup()
 #print(matrizFrases[0][1])
 
 
