@@ -69,24 +69,23 @@ def determinarCita():
 def crearXML():
     global matrizFrases
     global DiccionarioPersonajes
-    root = ET.Element("Backup")
-    matriz = ET.SubElement(root, "Matriz")
+    global contP
+    root=ET.Element("Backup")
+    matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
-        personaje = ET.SubElement(matriz, "Personaje", )
-        name = ET.SubElement(personaje, "Name", infoP=lista[0], ID=lista[2], Code=lista[3])
+        personaje=ET.SubElement(matriz,"Personaje",)
+        name=ET.SubElement(personaje,"Name",infoP=lista[0],ID=lista[2],Code=lista[3])
         for frase in lista[1]:
-            phrase = ET.SubElement(personaje, "Phrases", frases=frase)
-    Diccionario = ET.SubElement(root, "Diccionario")
+            phrase = ET.SubElement(personaje, "Phrases",frases=frase)
+    Diccionario=ET.SubElement(root,"Diccionario")
     for key in DiccionarioPersonajes:
-        llave = str(key).replace(" ", "_")
-        llave = llave.replace("/", "-")
         personaje = ET.SubElement(Diccionario, "Personaje")
         for i in range(1):
-            codigoP = ET.SubElement(personaje, "App_Code", Code=DiccionarioPersonajes[key][i])
-            llamadaAPI = ET.SubElement(personaje, "Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i + 1]))
-    tree = ET.ElementTree(root)
-    ET.dump(root)
-    xml = (prettify(root))
+            codigoP=ET.SubElement(personaje,"App_Code",Key=key,Code=DiccionarioPersonajes[key][i])
+            llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
+    variables=ET.SubElement(root,"Variables",contador=str(contP))
+    tree=ET.ElementTree(root)
+    xml=(prettify(root))
     with open('Backup.xml', "w") as file:
         file.write(xml)
     return
@@ -99,10 +98,10 @@ def cargarBackup():
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
-    # ET.dump(tree)
+    #ET.dump(tree)
     for personaje in root.iter("Personaje"):
         for name in personaje.iter("Name"):
-            lista = []
+            lista=[]
             listaFrases = []
             lista.append(name.attrib.get("infoP"))
             for frase in personaje.iter("Phrases"):
@@ -113,7 +112,13 @@ def cargarBackup():
             lista.append(name.attrib.get("ID"))
             lista.append(name.attrib.get("Code"))
             matrizFrases.append(lista)
+    for personaje in root.iter("Diccionario"):
+        for info in personaje.iter("App_Code"):
+            for contador in personaje.iter("Cantidad_de_llamadas_a_la_API"):
+                DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),contador.attrib.get("Llamadas")]
+
     print(matrizFrases)
+    print(DiccionarioPersonajes)
     return
 
 
@@ -149,7 +154,7 @@ for pj in matrizFrases:
     for frase in pj[1]:
         listbox.insert(END,frase+" - "+pj[0])
 
-solicitar= Button(top,text="Soy un botón",command=mostrarFrases)
+solicitar= Button(top,text="Soy un botón",command=solicitar)
 
 solicitar.place(x=200,y=200)
 

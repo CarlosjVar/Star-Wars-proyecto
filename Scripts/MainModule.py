@@ -72,15 +72,12 @@ def crearXML():
             phrase = ET.SubElement(personaje, "Phrases",frases=frase)
     Diccionario=ET.SubElement(root,"Diccionario")
     for key in DiccionarioPersonajes:
-        llave=str(key).replace(" ","_")
-        llave=llave.replace("/","-")
         personaje = ET.SubElement(Diccionario, "Personaje")
         for i in range(1):
-            codigoP=ET.SubElement(personaje,"App_Code",Code=DiccionarioPersonajes[key][i])
+            codigoP=ET.SubElement(personaje,"App_Code",Key=key,Code=DiccionarioPersonajes[key][i])
             llamadaAPI=ET.SubElement(personaje,"Cantidad_de_llamadas_a_la_API",Llamadas=str(DiccionarioPersonajes[key][i+1]))
     variables=ET.SubElement(root,"Variables",contador=str(contP))
     tree=ET.ElementTree(root)
-    ET.dump(root)
     xml=(prettify(root))
     with open('Backup.xml', "w") as file:
         file.write(xml)
@@ -106,7 +103,13 @@ def cargarBackup():
             lista.append(name.attrib.get("ID"))
             lista.append(name.attrib.get("Code"))
             matrizFrases.append(lista)
+    for personaje in root.iter("Diccionario"):
+        for info in personaje.iter("App_Code"):
+            for contador in personaje.iter("Cantidad_de_llamadas_a_la_API"):
+                DiccionarioPersonajes[info.attrib.get("Key")]=[info.attrib.get("Code"),contador.attrib.get("Llamadas")]
+
     print(matrizFrases)
+    print(DiccionarioPersonajes)
     return
 
 def prettify(elem):
@@ -121,7 +124,7 @@ while True:
        montarEnMatriz()
     else:
         #print (matrizFrases)
-        #print (DiccionarioPersonajes)
+        print (DiccionarioPersonajes)
         break
 crearXML()
 #cargarBackup()

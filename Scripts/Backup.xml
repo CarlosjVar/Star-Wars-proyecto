@@ -2,84 +2,31 @@
 <Backup>
   <Matriz>
     <Personaje>
-      <Name Code="#Q001-N" ID="[44, 45, 41]" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="You've been a good apprentice, Obi-Wan, and you're a much wiser man than I am. I foresee you will become a great Jedi Knight."/>
-      <Phrases frases="Life does not treat you fairly or unfairly, it merely is. It is up to each of us to be fair, or unfair."/>
-      <Phrases frases="There’s always a bigger fish."/>
+      <Name Code="#D001-E" ID="[16]" infoP="Darth Bane"/>
+      <Phrases frases="The Sith killed each other, victims of their own greed. But from the ashes of their destruction, I was the last survivor. I chose to pass my knowledge on to only one. I created a legacy so resilient that now you come before me."/>
     </Personaje>
     <Personaje>
-      <Name Code="#O002-I" ID="[25, 23]" infoP="Obi-Wan Kenobi"/>
-      <Phrases frases="You were my brother, Anakin. I loved you."/>
-      <Phrases frases="The Force will be with you. Always."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#A003-R" ID="[39]" infoP="Anakin Skywalker"/>
-      <Phrases frases="Just for once, let me look on you with my own eyes."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#D004-R" ID="[10, 11, 8]" infoP="Darth Vader"/>
-      <Phrases frases="Be Careful Not To Choke On Your Convictions."/>
-      <Phrases frases="You have failed me for the last time."/>
-      <Phrases frases="I find your lack of faith disturbing."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#H005-O" ID="[7, 6]" infoP="Han Solo"/>
-      <Phrases frases="Never tell me the odds!"/>
-      <Phrases frases="It’s the ship that made the Kessel run in less than twelve parsecs. I’ve outrun Imperial starships. Not the local bulk cruisers, mind you. I’m talking about the big Corellian ships, now. She’s fast enough for you, old man."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#N006-Y" ID="[2]" infoP="Nute Gunray"/>
-      <Phrases frases="In time, the suffering of your people will persuade you to see our point of view."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#R007-)" ID="[4]" infoP="Riyo Chuchi (Season One, Episode 15, Trespass)"/>
-      <Phrases frases="To die for one’s people is a great sacrifice. To live for one’s people, an even greater sacrifice. I choose to live for my people."/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#D008-E" ID="[54]" infoP="Duchess Satine Kryze"/>
+      <Name Code="#D002-E" ID="[54]" infoP="Duchess Satine Kryze"/>
       <Phrases frases="Remember, my dear Obi-Wan. I’ve loved you always. I always will."/>
     </Personaje>
     <Personaje>
-      <Name Code="#C009-E" ID="[55]" infoP="Chancellor Palpatine"/>
-      <Phrases frases="The dark side of the Force is a pathway to many abilities some consider to be unnatural."/>
+      <Name Code="#Q003-N" ID="[44]" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="You've been a good apprentice, Obi-Wan, and you're a much wiser man than I am. I foresee you will become a great Jedi Knight."/>
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
-      <App_Code Code="#Q001-N"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="3"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#O002-I"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#A003-R"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#D004-R"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="4"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#H005-O"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#N006-Y"/>
+      <App_Code Code="#D001-E" Key="Darth Bane"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#R007-)"/>
+      <App_Code Code="#D002-E" Key="Duchess Satine Kryze"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#D008-E"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#C009-E"/>
+      <App_Code Code="#Q003-N" Key="Qui-Gon Jinn"/>
       <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
   </Diccionario>
+  <Variables contador="3"/>
 </Backup>
