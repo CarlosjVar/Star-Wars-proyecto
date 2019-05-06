@@ -10,6 +10,7 @@ from validate_email import validate_email
 from email.mime.base import MIMEBase 
 from email import encoders
 import http.client as httplib
+import datetime
 
 #Variables Globales
 matrizFrases = []
@@ -107,6 +108,7 @@ def crearXML():
 def cargarBackup():
     global matrizFrases
     global DiccionarioPersonajes
+    global contP
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
@@ -131,6 +133,9 @@ def cargarBackup():
             for contador in personaje.findall("Llamadas"):
                 peticiones = int(contador.attrib.get("Llamadas"))
             DiccionarioPersonajes[name]= [code,peticiones]
+    for contador in root.iter("Variables"):
+        contP=int(contador.attrib.get("contador"))
+    print(contP)
     return
 
 def prettify(elem):
@@ -138,11 +143,15 @@ def prettify(elem):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 def shareBackup(lista):
+    fecha = str(datetime.datetime.now())
+    fecha = fecha[0:19].replace(":", "-").replace(" ", "-")
+
     root=ET.Element("Share")
     for frase in lista:
-        ET.SubElement(root,Frase,Phrase=frase)
+        ET.SubElement(root,"Frase",Phrase=frase)
+    archivo="share-"+fecha+".xml"
     xml = (prettify(root))
-    with open('Backup.xml', "w") as file:
+    with open(archivo, "w") as file:
         file.write(xml)
 
 def definirMayor ():
@@ -218,6 +227,7 @@ print  ("4 - Sacar matriz")
 print  ("5 - Guardar bakcup")
 print  ("6 - Cargar bakcup")
 print  ("7 - Enviar bakcup")
+print  ("8 - Crear Share")
 print  ("Otra cosa - Salir")
 while True:
     opcion = int(input ("Que quiere hacer?: "))
@@ -235,6 +245,8 @@ while True:
         cargarBackup ()
     elif opcion==7:
         enviarCorreo ()
+    elif opcion==8:
+        shareBackup(matrizFrases)
     else:
         break 
 

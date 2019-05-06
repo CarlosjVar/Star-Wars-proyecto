@@ -2,69 +2,38 @@
 <Backup>
   <Matriz>
     <Personaje>
-<<<<<<< HEAD
-      <Name Code="#L001-A" ID="[19]" infoP="Leia Organa"/>
-      <Phrases frases="Help me, Obi-Wan Kenobi. You’re my only hope."/>
+      <Name Code="#E001-E" ID="[18]" infoP="Emperor Palpatine"/>
+      <Phrases frases="Now, young Skywalker, you will die."/>
     </Personaje>
     <Personaje>
-      <Name Code="#D002-R" ID="[9]" infoP="Darth Vader"/>
-      <Phrases frases="No. I am your father."/>
-=======
-      <Name Code="#A001-O" ID="[47]" infoP="Ahsoka Tano"/>
-      <Phrases frases="I am no Jedi."/>
+      <Name Code="#C002-E" ID="[50]" infoP="Chirrut Îmwe"/>
+      <Phrases frases="I’m one with the Force. The Force is with me."/>
     </Personaje>
     <Personaje>
-      <Name Code="#Q002-N" ID="[43]" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="Secrets must be exposed when found. Detours must be taken when encountered. And if you are the one who stands at the crossroads or the place of concealment, you must never leave it to another to act in your place."/>
->>>>>>> master
+      <Name Code="#C003-R" ID="[51]" infoP="Cassian Andor"/>
+      <Phrases frases="Every time I walked away from something I wanted to forget, I told myself it was for a cause that I believed in. A cause that was worth it. Without that, we’re lost."/>
     </Personaje>
     <Personaje>
-      <Name Code="#L003-A" ID="[21]" infoP="Leia Organa"/>
-      <Phrases frases="Why, you stuck-up, half-witted, scruffy-looking nerf herder!"/>
-    </Personaje>
-    <Personaje>
-<<<<<<< HEAD
-      <Name Code="#O004-I" ID="[24]" infoP="Obi-Wan Kenobi"/>
-      <Phrases frases="Well, if droids could think, there’d be none of us here, would there?"/>
-=======
-      <Name Code="#Y004-A" ID="[36]" infoP="Yoda"/>
-      <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
->>>>>>> master
+      <Name Code="#L004-R" ID="[38]" infoP="Luke Skywalker"/>
+      <Phrases frases="I’ll never turn to the dark side. You’ve failed, your highness. I am a Jedi, like my father before me."/>
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
-<<<<<<< HEAD
-      <App_Code Code="#L001-A" Key="Leia Organa"/>
+      <App_Code Code="#E001-E" Key="Emperor Palpatine"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#D002-R" Key="Darth Vader"/>
+      <App_Code Code="#C002-E" Key="Chirrut Îmwe"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Q003-N" Key="Qui-Gon Jinn"/>
-      <Llamadas Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#O004-I" Key="Obi-Wan Kenobi"/>
+      <App_Code Code="#C003-R" Key="Cassian Andor"/>
       <Llamadas Llamadas="1"/>
-=======
-      <App_Code Code="#A001-O" Key="Ahsoka Tano"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Q002-N" Key="Qui-Gon Jinn"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#L003-A" Key="Leia Organa"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#Y004-A" Key="Yoda"/>
-      <Cantidad_de_llamadas_a_la_API Llamadas="1"/>
->>>>>>> master
+      <App_Code Code="#L004-R" Key="Luke Skywalker"/>
+      <Llamadas Llamadas="1"/>
     </Personaje>
   </Diccionario>
   <Variables contador="4"/>

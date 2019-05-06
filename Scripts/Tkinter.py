@@ -147,16 +147,19 @@ while True:
         print (DiccionarioPersonajes)
         break
 top=Tk()
-top.geometry("500x500")
-listbox = Listbox(top,width=300)
-listbox.pack()
+top.geometry("850x400")
+listbox = Listbox(top,width=100)
+listbox.place(x=34,y=107)
+etiqueta1= Label(top,text="Frases Star Wars",font=("Comic Sans",24))
+etiqueta1.grid(row=0,column=1)
 for pj in matrizFrases:
     for frase in pj[1]:
         listbox.insert(END,frase+" - "+pj[0])
-
+numeroveces=Entry(top)
+numeroveces.place(x=691,y=125)
 solicitar= Button(top,text="Soy un botón",command=solicitar)
 
-solicitar.place(x=200,y=200)
+solicitar.place(x=725,y=162)
 
 
 top.mainloop()
