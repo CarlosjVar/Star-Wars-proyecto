@@ -33,12 +33,9 @@ def obtenerFrase ():
     print(respuesta)
     return respuesta
 
-def montarEnDicccionario(cita):
-    global contP
-    global DiccionarioPersonajes
+def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
     personaje=cita[1]
     if personaje not in DiccionarioPersonajes.keys():
-        global contP
         contP+=1
         letraF=(personaje[len(personaje)-1]).upper()
         DiccionarioPersonajes[personaje]=[("#"+personaje[0]+str("%03d"%contP)+"-"+letraF),1]
@@ -47,26 +44,24 @@ def montarEnDicccionario(cita):
         ant=lista[1]
         lista[1]=ant+1
         DiccionarioPersonajes[personaje]=lista
-    return DiccionarioPersonajes
+    return [DiccionarioPersonajes,contP]
 
-def montarEnMatriz ():
-    global matrizFrases
-    cita=determinarCita()
+def montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP):
     if cita == False:
         return
-    diccionario=montarEnDicccionario(cita)
+    diccionario=montarEnDicccionario(DiccionarioPersonajes,contP,cita)
     for i in range(len(matrizFrases)):
         fila=matrizFrases[i]
         if cita[1]==fila[0]:
             if cita[0] not in fila[1]:
                 (matrizFrases[i])[1].append(cita[0])
                 (matrizFrases[i])[2].append(cita[2])
-                return
+                return [matrizFrases,diccionario[0],diccionario[1]]
             else:
-                return
-    nuevaFila=[cita[1],[cita[0]],[cita[2]],diccionario[cita[1]][0]]
+                return [matrizFrases,diccionario[0],diccionario[1]]
+    nuevaFila=[cita[1],[cita[0]],[cita[2]],(diccionario[0])[cita[1]][0]]
     matrizFrases.append(nuevaFila)
-    return
+    return [matrizFrases,diccionario[0],diccionario[1]]
     
 def determinarCita ():
     diccionario = obtenerFrase()
@@ -98,7 +93,6 @@ def crearXML():
         for i in range(1):
             codigoP=ET.SubElement(personaje,"App_Code",Key=key,Code=DiccionarioPersonajes[key][i])
             llamadaAPI=ET.SubElement(personaje,"Llamadas",Llamadas=str(DiccionarioPersonajes[key][i+1]))
-            print(DiccionarioPersonajes[key][i+1])
     variables=ET.SubElement(root,"Variables",contador=str(contP))
     xml=(prettify(root))
     with open('Backup.xml', "w") as file:
@@ -135,17 +129,16 @@ def cargarBackup():
             DiccionarioPersonajes[name]= [code,peticiones]
     for contador in root.iter("Variables"):
         contP=int(contador.attrib.get("contador"))
-    print(contP)
     return
 
 def prettify(elem):
         rough_string = ET.tostring(elem, 'utf-8')
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
+    
 def shareBackup(lista):
     fecha = str(datetime.datetime.now())
     fecha = fecha[0:19].replace(":", "-").replace(" ", "-")
-
     root=ET.Element("Share")
     for frase in lista:
         ET.SubElement(root,"Frase",Phrase=frase)
@@ -153,9 +146,10 @@ def shareBackup(lista):
     xml = (prettify(root))
     with open(archivo, "w") as file:
         file.write(xml)
+    return archivo
+        
 
-def definirMayor ():
-    global DiccionarioPersonajes
+def definirMayor (DiccionarioPersonajes):
     mayor=0
     resul=""
     for key in DiccionarioPersonajes:
@@ -169,7 +163,7 @@ def definirMayor ():
     else:
         return "El o los personajes con más resultados: "+resul
 
-def enviarCorreo ():
+def enviarCorreo (nombre):
     while True:
         if revisarInternet()==True:
             break
@@ -190,8 +184,8 @@ def enviarCorreo ():
     msg['Subject'] = "Citas de StarWars"
     mensaje = "Alguien desea compartir las siguientes citas de StarWars contigo"
     msg.attach(MIMEText(mensaje, 'plain'))
-    filename = "Backup.xml"
-    attachment = open("Backup.xml", "rb")
+    filename = nombre
+    attachment = open(nombre, "rb")
     p = MIMEBase('application', 'octet-stream')
     p.set_payload((attachment).read())
     encoders.encode_base64(p)
@@ -232,9 +226,13 @@ print  ("Otra cosa - Salir")
 while True:
     opcion = int(input ("Que quiere hacer?: "))
     if opcion==1:
-       montarEnMatriz()
+        cita=determinarCita()
+        Provisional=montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP)
+        contP=Provisional[2]
+        DiccionarioPersonajes=Provisional[1]
+        matrizFrases=Provisional[0]
     elif opcion==2:
-        print(definirMayor())
+        print(definirMayor(DiccionarioPersonajes))
     elif opcion==3:
         print (DiccionarioPersonajes)
     elif opcion==4:
@@ -244,9 +242,9 @@ while True:
     elif opcion==6:
         cargarBackup ()
     elif opcion==7:
-        enviarCorreo ()
+        enviarCorreo (nombre)
     elif opcion==8:
-        shareBackup(matrizFrases)
+        nombre=shareBackup(matrizFrases)
     else:
         break 
 
