@@ -76,10 +76,7 @@ def determinarCita ():
     cita.append(diccionario["id"])
     return cita
 
-def crearXML():
-    global matrizFrases
-    global DiccionarioPersonajes
-    global contP
+def crearXML(matrizFrases,DiccionarioPersonajes):
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
@@ -99,10 +96,7 @@ def crearXML():
         file.write(xml)
     return
 
-def cargarBackup():
-    global matrizFrases
-    global DiccionarioPersonajes
-    global contP
+def cargarBackup(matrizFrases,DiccionarioPersonajes):
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
@@ -238,9 +232,9 @@ while True:
     elif opcion==4:
         print (matrizFrases)
     elif opcion==5:
-        crearXML ()
+        crearXML (matrizFrases,DiccionarioPersonajes)
     elif opcion==6:
-        cargarBackup ()
+        cargarBackup (matrizFrases,DiccionarioPersonajes)
     elif opcion==7:
         enviarCorreo (nombre)
     elif opcion==8:
