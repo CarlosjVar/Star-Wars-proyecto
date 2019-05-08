@@ -11,6 +11,9 @@ from email.mime.base import MIMEBase
 from email import encoders
 import http.client as httplib
 import datetime
+from requests.exceptions import HTTPError
+import re
+import os
 
 #Variables Globales
 matrizFrases = []
@@ -28,10 +31,16 @@ def obtenerFrase ():
                         +"o cualquier otra tecla para reintentar: ")        
             if x == "1":
                 return False
-    respuesta=(requests.get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote")).text
-    respuesta=dict(eval(respuesta))
-    print(respuesta)
-    return respuesta
+    respuesta=requests.get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote")
+    try:
+        respuesta.raise_for_status()
+        respuesta=respuesta.text
+        respuesta=dict(eval(respuesta))   
+        print(respuesta)
+        return respuesta
+    except HTTPError as http_err:
+        print ("La API no ha respondido")
+        return False
 
 def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
     personaje=cita[1]
@@ -68,11 +77,18 @@ def determinarCita ():
     if diccionario == False:
         return False
     cita = diccionario["starWarsQuote"]
+    if diccionario["id"]==15:
+        cita=cita.split (". — ")
+        cita.append(diccionario["id"])
+        return cita
     cita = cita.split(" — ")
     if len (cita)==1:
         cita=cita[0].split (" ? ")
         if len (cita)==1:
             cita=cita[0].split (" - ")
+            if len (cita)==1:
+                cita=cita[0].split (" _ ")
+    cita[1]=re.sub(r' \([^)]*\)','', cita[1])
     cita.append(diccionario["id"])
     return cita
 
@@ -123,7 +139,7 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
             DiccionarioPersonajes[name]= [code,peticiones]
     for contador in root.iter("Variables"):
         contP=int(contador.attrib.get("contador"))
-    return
+    return contP
 
 def prettify(elem):
         rough_string = ET.tostring(elem, 'utf-8')
@@ -140,6 +156,7 @@ def shareBackup(lista):
     xml = (prettify(root))
     with open(archivo, "w") as file:
         file.write(xml)
+    file.close()
     return archivo
         
 
@@ -157,7 +174,7 @@ def definirMayor (DiccionarioPersonajes):
     else:
         return "El o los personajes con más resultados: "+resul
 
-def enviarCorreo (nombre):
+def enviarCorreo (matrizFrases):
     while True:
         if revisarInternet()==True:
             break
@@ -165,6 +182,7 @@ def enviarCorreo (nombre):
             x = input ("No hay una conexión a internet disponible, revise su conexión, digite 1 para devolverse o cualquier otra tecla para reintentar: ")        
             if x == "1":
                 return
+    nombre = shareBackup(matrizFrases)
     context = ssl.create_default_context()
     while True:
         destinatario=input("Digite el correo electrónico del destinatario: ")
@@ -192,8 +210,11 @@ def enviarCorreo (nombre):
             server.sendmail("lagalleradepython@gmail.com",destinatario,text)
         except UnicodeEncodeError:
             print("Dado que la dirección de destino contiene el caracter 'ñ', el mensaje no se ha enviado")
-            return
+            os.remove(nombre) 
+            return 
     print ("Mensaje Enviado")
+    attachment.close()
+    os.remove(nombre)
     return
 
 
@@ -206,7 +227,17 @@ def revisarInternet():
     except:
         conn.close()
         return False
-            
+
+def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
+    cita=determinarCita()
+    if cita!=False:
+        Provisional=montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP)
+        contP=Provisional[2]
+        DiccionarioPersonajes=Provisional[1]
+        matrizFrases=Provisional[0]
+        return contP
+    else:
+        return contP
 #PP
 print  ("1 - Sacar frase")
 print  ("2 - Sacar mayor")
@@ -215,16 +246,11 @@ print  ("4 - Sacar matriz")
 print  ("5 - Guardar bakcup")
 print  ("6 - Cargar bakcup")
 print  ("7 - Enviar bakcup")
-print  ("8 - Crear Share")
 print  ("Otra cosa - Salir")
 while True:
     opcion = int(input ("Que quiere hacer?: "))
     if opcion==1:
-        cita=determinarCita()
-        Provisional=montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP)
-        contP=Provisional[2]
-        DiccionarioPersonajes=Provisional[1]
-        matrizFrases=Provisional[0]
+        contP=nuevaFrase (matrizFrases,DiccionarioPersonajes,contP)
     elif opcion==2:
         print(definirMayor(DiccionarioPersonajes))
     elif opcion==3:
@@ -234,11 +260,9 @@ while True:
     elif opcion==5:
         crearXML (matrizFrases,DiccionarioPersonajes)
     elif opcion==6:
-        cargarBackup (matrizFrases,DiccionarioPersonajes)
+        contP=cargarBackup (matrizFrases,DiccionarioPersonajes)
     elif opcion==7:
-        enviarCorreo (nombre)
-    elif opcion==8:
-        nombre=shareBackup(matrizFrases)
+        enviarCorreo (matrizFrases)
     else:
         break 
 
