@@ -81,9 +81,11 @@ def crearXML(matrizFrases,DiccionarioPersonajes):
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
         personaje=ET.SubElement(matriz,"Personaje",)
-        name=ET.SubElement(personaje,"Name",infoP=lista[0],ID=lista[2],Code=lista[3])
+        name=ET.SubElement(personaje,"Name",infoP=lista[0],Code=lista[3])
         for frase in lista[1]:
             phrase = ET.SubElement(personaje, "Phrases",frases=frase)
+        for id in lista[2]:
+            ID= ET.SubElement(personaje,"ID",ID=str(id))
     Diccionario=ET.SubElement(root,"Diccionario")
     for key in DiccionarioPersonajes:
         personaje = ET.SubElement(Diccionario, "Personaje")
@@ -104,13 +106,17 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
         for name in personaje.iter("Name"):
             lista=[]
             listaFrases = []
+            listaID=[]
             lista.append(name.attrib.get("infoP"))
             for frase in personaje.iter("Phrases"):
                 frase = frase.attrib.get("frases")
                 frase = frase.replace("", "’")
                 listaFrases.append(frase)
             lista.append(listaFrases)
-            lista.append(name.attrib.get("ID"))
+            for id in personaje.iter("ID"):
+                ids= id.attrib.get("ID")
+                listaID.append(int(ids))
+            lista.append(listaID)
             lista.append(name.attrib.get("Code"))
             matrizFrases.append(lista)
     for diccionario in root.iter("Diccionario"):
@@ -124,6 +130,14 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
     for contador in root.iter("Variables"):
         contP=int(contador.attrib.get("contador"))
     return
+def cargarContador(contP):
+    with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
+        tree = ET.parse(xml)
+    root = tree.getroot()
+    for contador in root.iter("Variables"):
+        contP=int(contador.attrib.get("contador"))
+    return contP
+
 
 def prettify(elem):
         rough_string = ET.tostring(elem, 'utf-8')
@@ -235,6 +249,7 @@ while True:
         crearXML (matrizFrases,DiccionarioPersonajes)
     elif opcion==6:
         cargarBackup (matrizFrases,DiccionarioPersonajes)
+        contP=cargarContador(contP)
     elif opcion==7:
         enviarCorreo (nombre)
     elif opcion==8:
