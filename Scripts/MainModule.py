@@ -14,11 +14,10 @@ import datetime
 from requests.exceptions import HTTPError
 import re
 import os
+from tkinter import *
+from tkinter import messagebox
 
 #Variables Globales
-matrizFrases = []
-DiccionarioPersonajes = {}
-contP=0
 
 #Definición de funciones
 
@@ -27,10 +26,8 @@ def obtenerFrase ():
         if revisarInternet()==True:
             break
         else:
-            x = input ("No hay una conexión a internet disponible, revise su conexión y digite 1 para devolverse"\
-                        +"o cualquier otra tecla para reintentar: ")        
-            if x == "1":
-                return False
+            msg=messagebox.showinfo("Error","No hay conexión a internet")
+            return False
     respuesta=requests.get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote")
     try:
         respuesta.raise_for_status()
@@ -39,7 +36,7 @@ def obtenerFrase ():
         print(respuesta)
         return respuesta
     except HTTPError as http_err:
-        print ("La API no ha respondido")
+        msg1=messagebox.showinfo("Error","La API no ha respondido")
         return False
 
 def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
@@ -253,33 +250,33 @@ def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
     else:
         return contP
 #PP
-print  ("1 - Sacar frase")
-print  ("2 - Sacar mayor")
-print  ("3 - Sacar diccionario")
-print  ("4 - Sacar matriz")
-print  ("5 - Guardar bakcup")
-print  ("6 - Cargar bakcup")
-print  ("7 - Enviar bakcup")
-print  ("Otra cosa - Salir")
-while True:
-    opcion = int(input ("Que quiere hacer?: "))
-    if opcion==1:
-        contP=nuevaFrase (matrizFrases,DiccionarioPersonajes,contP)
-    elif opcion==2:
-        print(definirMayor(DiccionarioPersonajes))
-    elif opcion==3:
-        print (DiccionarioPersonajes)
-    elif opcion==4:
-        print (matrizFrases)
-    elif opcion==5:
-        crearXML (matrizFrases,DiccionarioPersonajes)
-    elif opcion==6:
-        cargarBackup (matrizFrases,DiccionarioPersonajes)
-        contP=cargarContador(contP)
-    elif opcion==7:
-        enviarCorreo (matrizFrases)
-    else:
-        break 
+# print  ("1 - Sacar frase")
+# print  ("2 - Sacar mayor")
+# print  ("3 - Sacar diccionario")
+# print  ("4 - Sacar matriz")
+# print  ("5 - Guardar bakcup")
+# print  ("6 - Cargar bakcup")
+# print  ("7 - Enviar bakcup")
+# print  ("Otra cosa - Salir")
+# while True:
+#     opcion = int(input ("Que quiere hacer?: "))
+#     if opcion==1:
+#         contP=nuevaFrase (matrizFrases,DiccionarioPersonajes,contP)
+#     elif opcion==2:
+#         print(definirMayor(DiccionarioPersonajes))
+#     elif opcion==3:
+#         print (DiccionarioPersonajes)
+#     elif opcion==4:
+#         print (matrizFrases)
+#     elif opcion==5:
+#         crearXML (matrizFrases,DiccionarioPersonajes)
+#     elif opcion==6:
+#         cargarBackup (matrizFrases,DiccionarioPersonajes)
+#         contP=cargarContador(contP)
+#     elif opcion==7:
+#         enviarCorreo (matrizFrases)
+#     else:
+#         break
 
 
 
