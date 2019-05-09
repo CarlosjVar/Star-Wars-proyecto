@@ -138,28 +138,18 @@ def mostrarFrases():
     hola="Soy un bonito string"
     msg=messagebox.showinfo("Frases",hola)
 #PP
-while True:
-    opcion = int(input ("Que quiere hacer?: "))
-    if opcion==1:
-       montarEnMatriz()
-    else:
-        print (matrizFrases)
-        print (DiccionarioPersonajes)
-        break
 top=Tk()
 top.geometry("850x400")
-listbox = Listbox(top,width=100)
-listbox.place(x=34,y=107)
+listbox = Listbox(top,width=75)
+listbox.place(x=34,y=104)
 etiqueta1= Label(top,text="Frases Star Wars",font=("Comic Sans",24))
-etiqueta1.grid(row=0,column=1)
+etiqueta1.grid(row=1,column=1)
 for pj in matrizFrases:
     for frase in pj[1]:
         listbox.insert(END,frase+" - "+pj[0])
 numeroveces=Entry(top)
-numeroveces.place(x=691,y=125)
-solicitar= Button(top,text="Soy un botón",command=solicitar)
-
+numeroveces.place(x=670,y=115)
+solicitar= Button(top,text=,command=solicitar)
 solicitar.place(x=725,y=162)
-
 
 top.mainloop()
