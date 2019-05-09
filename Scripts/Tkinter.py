@@ -137,19 +137,40 @@ def mostrarFrases():
             break
     hola="Soy un bonito string"
     msg=messagebox.showinfo("Frases",hola)
+
+def procesoBoton(matrizFrases,listbox,etiqueta1):
+    montarEnMatriz()
+    etiqueta1.config(text=definirMayor(DiccionarioPersonajes))
+    listbox.delete(0,END)
+    for pj in matrizFrases:
+        for frase in pj[1]:
+            listbox.insert(END, frase+ " - " + pj[0])
+def definirMayor (DiccionarioPersonajes):
+    mayor=0
+    resul=""
+    for key in DiccionarioPersonajes:
+        if DiccionarioPersonajes[key][1]>mayor:
+            mayor=DiccionarioPersonajes[key][1]
+            resul=key
+        elif DiccionarioPersonajes[key][1]==mayor:
+            resul=resul+", "+key
+    if mayor==0:
+        return "No se han solicitado frases aún"
+    else:
+        return "El o los personajes con más resultados: "+resul
 #PP
 top=Tk()
 top.geometry("850x400")
-listbox = Listbox(top,width=75)
-listbox.place(x=34,y=104)
-etiqueta1= Label(top,text="Frases Star Wars",font=("Comic Sans",24))
-etiqueta1.grid(row=1,column=1)
+listbox = Listbox(top,width=100)
+listbox.place(x=34,y=107)
+etiqueta1= Label(top,text=definirMayor(DiccionarioPersonajes),font=("Comic Sans",24))
+etiqueta1.grid(row=0,column=1)
 for pj in matrizFrases:
     for frase in pj[1]:
         listbox.insert(END,frase+" - "+pj[0])
 numeroveces=Entry(top)
-numeroveces.place(x=670,y=115)
-solicitar= Button(top,text=,command=solicitar)
+numeroveces.place(x=691,y=125)
+solicitar= Button(top,text="Soy un botón",command= lambda: procesoBoton(matrizFrases,listbox,etiqueta1))
 solicitar.place(x=725,y=162)
 
 top.mainloop()
