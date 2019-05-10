@@ -6,13 +6,12 @@ from tkinter.filedialog import askopenfilename
 #Varibles Globales
 matrizFrases = []
 DiccionarioPersonajes = {}
-contP=0
+contP=[0]
 def procesoBoton(matrizFrases,listbox,etiqueta1,contP):
-    print(contP)
     try:
         repet=int(numeroveces.get())
         for i in range(repet):
-            nuevaFrase(matrizFrases, DiccionarioPersonajes, contP)
+            contP[0]=nuevaFrase(matrizFrases, DiccionarioPersonajes, contP[0])
             etiqueta1.config(text=definirMayor(DiccionarioPersonajes))
             listbox.delete(0,END)
             for pj in matrizFrases:
@@ -24,7 +23,7 @@ def preguntarBackup():
     global contP
     MsgBox =messagebox.askquestion('Guardar Backup', 'Desea respaldar la información almacenada hasta el momento?')
     if MsgBox == 'yes':
-        crearXML(matrizFrases, DiccionarioPersonajes,contP)
+        crearXML(matrizFrases, DiccionarioPersonajes,contP[0])
         top.destroy()
     else:
         top.destroy()
@@ -56,6 +55,7 @@ def EnviarCorreo(lb):
     lista=sacarLista(lb)
     print(lista)
     enviarCorreo(lista)
+    
 def cargarShare():
     ventana = Tk()
     ventana.geometry("800x350")
