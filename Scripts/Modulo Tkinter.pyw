@@ -27,8 +27,6 @@ def preguntarBackup():
         top.destroy()
     else:
         top.destroy()
-def solicitar():
-    msg=messagebox.showinfo("Soy el marco de la ventana", "Soy el contenido de la ventana")
 def shareF(matrizFrases):
     ventana=Tk()
     ventana.geometry("800x350")
@@ -37,7 +35,7 @@ def shareF(matrizFrases):
     lb.place(x=34,y=107)
     correo=Entry(ventana,width=50)
     correo.place(x=36,y=279)
-    comentario=Label(ventana,text="Selecciones las frases que desea compartir")
+    comentario=Label(ventana,text="Selecciones las frases que desea compartir",font=("Comic Sans",15))
     comentario.place(x=36,y=80)
     for pj in matrizFrases:
         for frase in pj[1]:
@@ -53,14 +51,13 @@ def sacarLista(lb):
     return lista
 def EnviarCorreo(lb):
     lista=sacarLista(lb)
-    print(lista)
     enviarCorreo(lista)
-    
+
 def cargarShare():
     ventana = Tk()
     ventana.geometry("800x350")
     ventana.title("Frases Compartidas")
-    etiqueta2=Label(ventana,text="Un usuario decidió compartir estas frases contigo")
+    etiqueta2=Label(ventana,text="Un usuario decidió compartir estas frases contigo",font=("Comic Sans",15))
     etiqueta2.place(x=34,y=70)
     lbe = Listbox(ventana, width=100, selectmode=SINGLE)
     lbe.place(x=34, y=107)
@@ -76,12 +73,22 @@ def cargarShare():
     ventana.mainloop()
 
 
+try:
+    cargarBackup(matrizFrases,DiccionarioPersonajes)
+    contP.pop(0)
+    contP.append(cargarContador())
+    Tk().withdraw()
+    back=messagebox.showinfo("Info Backup","Se encontró un backup, las frases apareceran en pantalla la primer vez que presione el botón de buscar frases")
 
+except:
+    noback=messagebox.showinfo("Info Backup","No se encontró un backup")
 top=Tk()
 top.geometry("850x400")
 top.title("Star Wars Frases")
 top.config(bg="gray95")
 top.protocol("WM_DELETE_WINDOW", preguntarBackup)
+labelinfo=Label(text="Frases Star Wars",font=("Comic Sans",15))
+labelinfo.place(x=33,y=80)
 listbox = Listbox(top,width=100)
 listbox.place(x=34,y=107)
 etiqueta1= Label(top,text=definirMayor(DiccionarioPersonajes),font=("Comic Sans",15))

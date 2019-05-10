@@ -143,13 +143,13 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
                 peticiones = int(contador.attrib.get("Llamadas"))
             DiccionarioPersonajes[name]= [code,peticiones]
     return
-def cargarContador(contP):
+def cargarContador():
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
     for contador in root.iter("Variables"):
-        contP=int(contador.attrib.get("contador"))
-    return contP
+        contP1=int(contador.attrib.get("contador"))
+    return contP1
 
 
 def prettify(elem):
