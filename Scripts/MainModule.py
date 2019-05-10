@@ -19,8 +19,6 @@ from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
 
 
-#Variables Globales
-
 #Definición de funciones
 
 def obtenerFrase ():
@@ -169,6 +167,7 @@ def shareBackup(lista):
         file.write(xml)
     file.close()
     return archivo
+
 def cargarShareXML(archivo):
     listaFra=[]
     with codecs.open(archivo, 'r', encoding='latin-1') as xml:
@@ -197,22 +196,24 @@ def definirMayor (DiccionarioPersonajes):
     else:
         return "El o los personajes con más resultados: "+resul
 
-def enviarCorreo (matrizFrases):
+def enviarCorreo (matrizFrases,destinatario):
     while True:
         if revisarInternet()==True:
             break
         else:
-            x = input ("No hay una conexión a internet disponible, revise su conexión, digite 1 para devolverse o cualquier otra tecla para reintentar: ")        
-            if x == "1":
-                return
+            msg=messagebox.showinfo("Error","No hay conexión a internet")
+            return
     nombre = shareBackup(matrizFrases)
     context = ssl.create_default_context()
     while True:
-        destinatario=input("Digite el correo electrónico del destinatario: ")
-        if validate_email(destinatario):
+        if destinatario==None or destinatario=="":
+            msg=messagebox.showinfo("Error","Favor ingresar un correo de destino")
+            return
+        elif re.match(r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?",destinatario):
             break
         else:
-            print ("El correo brindado no tiene el formato de una dirección válida, favor reingresarlo")
+            msg=messagebox.showinfo("Error","El correo ingresado no tiene el formato de una dirección válida")
+            return
     msg = MIMEMultipart()
     msg['From'] = "lagalleradepython@gmail.com"
     msg['To'] = destinatario
@@ -232,10 +233,10 @@ def enviarCorreo (matrizFrases):
             server.login("lagalleradepython@gmail.com", "Joseph20*")
             server.sendmail("lagalleradepython@gmail.com",destinatario,text)
         except UnicodeEncodeError:
-            print("Dado que la dirección de destino contiene el caracter 'ñ', el mensaje no se ha enviado")
+            msg=messagebox.showinfo("Error","El correo ingresado contiene carácteres no válidos")
             os.remove(nombre) 
             return 
-    print ("Mensaje Enviado")
+    msg=messagebox.showinfo("Envío de frases","Correo enviado")
     attachment.close()
     os.remove(nombre)
     return

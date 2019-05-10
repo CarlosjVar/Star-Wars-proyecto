@@ -19,14 +19,15 @@ def procesoBoton(matrizFrases,listbox,etiqueta1,contP):
                     listbox.insert(END, pj[3]+":"+frase+ " - " + pj[0])
     except ValueError:
         msg=messagebox.showinfo("Error","Debe insertar un número de veces para poder buscar frases")
-def preguntarBackup():
-    global contP
-    MsgBox =messagebox.askquestion('Guardar Backup', 'Desea respaldar la información almacenada hasta el momento?')
+        
+def preguntarBackup(contP):
+    MsgBox =messagebox.askquestion('Guardar Backup', '¿Desea respaldar la información almacenada hasta el momento?')
     if MsgBox == 'yes':
         crearXML(matrizFrases, DiccionarioPersonajes,contP[0])
         top.destroy()
     else:
         top.destroy()
+
 def shareF(matrizFrases):
     ventana=Tk()
     ventana.geometry("800x350")
@@ -35,20 +36,27 @@ def shareF(matrizFrases):
     lb.place(x=34,y=107)
     correo=Entry(ventana,width=50)
     correo.place(x=36,y=279)
+    destinatario=correo.get()
     comentario=Label(ventana,text="Selecciones las frases que desea compartir",font=("Comic Sans",15))
     comentario.place(x=36,y=80)
     for pj in matrizFrases:
         for frase in pj[1]:
             lb.insert(END, pj[3] + ":" + frase + " - " + pj[0])
-    obtener=Button(ventana,text="Sacar Frases",command= lambda :EnviarCorreo(lb))
-    obtener.place(x=700,y=150)
-def sacarLista(lb):
+    obtener=Button(ventana,text="Sacar Frases",command= lambda:sacarLista(lb,destinatario))
+    obtener.place(x=400,y=150)
+
+
+def sacarLista(lb,correo):
     lista = []
     listaFr = lb.curselection()
     for item in listaFr:
         var = lb.get(item)
         lista.append(var)
-    return lista
+    print (lista)
+    print (correo)
+    enviarCorreo(lista,correo)
+    return
+
 def EnviarCorreo(lb):
     lista=sacarLista(lb)
     enviarCorreo(lista)
@@ -86,7 +94,7 @@ top=Tk()
 top.geometry("850x400")
 top.title("Star Wars Frases")
 top.config(bg="gray95")
-top.protocol("WM_DELETE_WINDOW", preguntarBackup)
+top.protocol("WM_DELETE_WINDOW",lambda: preguntarBackup(contP))
 labelinfo=Label(text="Frases Star Wars",font=("Comic Sans",15))
 labelinfo.place(x=33,y=80)
 listbox = Listbox(top,width=100)
