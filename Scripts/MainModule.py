@@ -16,6 +16,8 @@ import re
 import os
 from tkinter import *
 from tkinter import messagebox
+from tkinter.filedialog import askopenfilename
+
 
 #Variables Globales
 
@@ -89,7 +91,7 @@ def determinarCita ():
     cita.append(diccionario["id"])
     return cita
 
-def crearXML(matrizFrases,DiccionarioPersonajes):
+def crearXML(matrizFrases,DiccionarioPersonajes,contP):
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
@@ -140,8 +142,6 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
             for contador in personaje.findall("Llamadas"):
                 peticiones = int(contador.attrib.get("Llamadas"))
             DiccionarioPersonajes[name]= [code,peticiones]
-    for contador in root.iter("Variables"):
-        contP=int(contador.attrib.get("contador"))
     return
 def cargarContador(contP):
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
@@ -169,6 +169,18 @@ def shareBackup(lista):
         file.write(xml)
     file.close()
     return archivo
+def cargarShareXML(archivo):
+    listaFra=[]
+    with codecs.open(archivo, 'r', encoding='latin-1') as xml:
+        tree = ET.parse(xml)
+    root = tree.getroot()
+    ET.dump(tree)
+    for frase in root.iter("Frase"):
+        frase = frase.attrib.get("Phrase")
+        frase = frase.replace("", "’")
+        listaFra.append(frase)
+    print(listaFra)
+    return listaFra
         
 
 def definirMayor (DiccionarioPersonajes):
