@@ -62,7 +62,7 @@ def montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP):
                 (matrizFrases[i])[2].append(cita[2])
                 return [matrizFrases,diccionario[0],diccionario[1]]
             else:
-                return [matrizFrases,diccionario[0],diccionario[1]]
+                return [matrizFrases,diccionario[0],diccionario[1],True]
     nuevaFila=[cita[1],[cita[0]],[cita[2]],(diccionario[0])[cita[1]][0]]
     matrizFrases.append(nuevaFila)
     return [matrizFrases,diccionario[0],diccionario[1]]
@@ -261,7 +261,10 @@ def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
         contP=Provisional[2]
         DiccionarioPersonajes=Provisional[1]
         matrizFrases=Provisional[0]
-        return contP
+        if len(Provisional)==4:
+            return contP,"repetir"
+        else:
+            return contP
     else:
         return [contP,False]
 #PP

@@ -17,7 +17,12 @@ def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
         repet=int(numeroveces.get())
         if repet>0:
             for i in range(repet):
-                temp=nuevaFrase(matrizFrases, DiccionarioPersonajes, contP[0])
+                while True:
+                    temp=nuevaFrase(matrizFrases, DiccionarioPersonajes, contP[0])
+                    if type(temp)!=tuple:
+                        break
+                    else:
+                        contP[0]=temp[0]
                 if type(temp)==list:
                     contP[0]=temp[0]
                     break
