@@ -73,7 +73,7 @@ def determinarCita ():
         return False
     cita = diccionario["starWarsQuote"]
     if diccionario["id"]==15:
-        cita=cita.split (". —")
+        cita=cita.split (". — ")
         cita.append(diccionario["id"])
         return cita
     cita = cita.split(" — ")

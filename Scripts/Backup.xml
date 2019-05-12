@@ -4,7 +4,9 @@
     <Personaje>
       <Name Code="#D001-R" infoP="Darth Vader"/>
       <Phrases frases="No. I am your father."/>
+      <Phrases frases="Be Careful Not To Choke On Your Convictions."/>
       <ID ID="9"/>
+      <ID ID="10"/>
     </Personaje>
     <Personaje>
       <Name Code="#Y002-A" infoP="Yoda"/>
@@ -66,11 +68,16 @@
       <Phrases frases="In time, the suffering of your people will persuade you to see our point of view."/>
       <ID ID="2"/>
     </Personaje>
+    <Personaje>
+      <Name Code="#E012-E" infoP="Emperor Palpatine"/>
+      <Phrases frases="Now, young Skywalker, you will die."/>
+      <ID ID="18"/>
+    </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
       <App_Code Code="#D001-R" Key="Darth Vader"/>
-      <Llamadas Llamadas="2"/>
+      <Llamadas Llamadas="3"/>
     </Personaje>
     <Personaje>
       <App_Code Code="#Y002-A" Key="Yoda"/>
@@ -78,7 +85,7 @@
     </Personaje>
     <Personaje>
       <App_Code Code="#J003-T" Key="Jango Fett"/>
-      <Llamadas Llamadas="1"/>
+      <Llamadas Llamadas="2"/>
     </Personaje>
     <Personaje>
       <App_Code Code="#R004-Y" Key="Rey"/>
@@ -112,6 +119,10 @@
       <App_Code Code="#N011-Y" Key="Nute Gunray"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
+    <Personaje>
+      <App_Code Code="#E012-E" Key="Emperor Palpatine"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
   </Diccionario>
-  <Variables contador="11"/>
+  <Variables contador="12"/>
 </Backup>

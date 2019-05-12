@@ -30,19 +30,20 @@ def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
         else:
             msg=messagebox.showinfo("Error","La cantidad de solicitudes debe ser un número mayor o igual a 1")
     except ValueError:
-        msg=messagebox.showinfo("Error","Debe insertar un número de veces para poder buscar frases")
+        msg=messagebox.showinfo("Error","Debe insertar un número de veces que se solicitarán frases")
         
 def preguntarBackup(contP):
-    MsgBox =messagebox.askquestion('Guardar Backup', '¿Desea respaldar la información almacenada hasta el momento?')
+    MsgBox =messagebox.askquestion('Guardar Backup', '¿Desea hacer un archivo de respaldo de las frases actuales?')
     if MsgBox == 'yes':
         crearXML(matrizFrases, DiccionarioPersonajes,contP[0])
         top.destroy()
     else:
         top.destroy()
 
+
 def BotonDeCompartir(matrizFrases):
     ventana=Tk()
-    ventana.geometry("1317x325")
+    ventana.geometry("1317x270")
     ventana.title("Compartir Frases")
     frasesCompartir=Listbox(ventana,width=217,selectmode=MULTIPLE)
     frasesCompartir.place(x=6,y=40)
@@ -52,12 +53,20 @@ def BotonDeCompartir(matrizFrases):
     etiqueta5.place(x=7,y=15)
     etiqueta6=Label(ventana,text="Dirección del correo electrónico del destinatario: ",font=("Comic Sans",11))
     etiqueta6.place(x=7,y=212)
+    BotonDeRefrescar (matrizFrases,frasesCompartir)
+    obtener=Button(ventana,text="Enviar frases seleccionadas",command= lambda:prepararCorreo(frasesCompartir,correo,ventana))
+    obtener.place(x=665,y=212)
+    refrescar=Button(ventana,text="Actualizar listado de frases por enviar",command= lambda:BotonDeRefrescar(matrizFrases,frasesCompartir))
+    refrescar.place(x=1000,y=212)
+    ventana.mainloop()
+
+def BotonDeRefrescar (matrizFrases,frasesCompartir):
+    frasesCompartir.delete(0,'end')
     for pj in matrizFrases:
         for frase in pj[1]:
             frasesCompartir.insert(END, pj[3] + ": " + frase + " ~ " + pj[0])
-    obtener=Button(ventana,text="Enviar frases seleccionadas",command= lambda:prepararCorreo(frasesCompartir,correo,ventana))
-    obtener.place(x=665,y=212)
-    ventana.mainloop()
+    return
+    
 
 def prepararCorreo(frases,correo,ventana):
     destinatario=correo.get()
@@ -70,7 +79,6 @@ def prepararCorreo(frases,correo,ventana):
         msg=messagebox.showinfo("Error","Debe seleccionar al menos una frase para compartir")
         return
     if enviarCorreo(lista,destinatario)==True:
-        ventana.destroy()
         return
 
 def abrirManual():
