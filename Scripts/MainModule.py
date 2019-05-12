@@ -33,10 +33,9 @@ def obtenerFrase ():
         respuesta.raise_for_status()
         respuesta=respuesta.text
         respuesta=dict(eval(respuesta))   
-        print(respuesta)
         return respuesta
     except HTTPError as http_err:
-        msg1=messagebox.showinfo("Error","La API no ha respondido")
+        msg1=messagebox.showinfo("Error","La API no ha respondido, puede deberse a que esta se encuentra caida o bloqueada.")
         return False
 
 def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
@@ -141,6 +140,7 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
                 peticiones = int(contador.attrib.get("Llamadas"))
             DiccionarioPersonajes[name]= [code,peticiones]
     return
+
 def cargarContador():
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)

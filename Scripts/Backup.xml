@@ -2,126 +2,34 @@
 <Backup>
   <Matriz>
     <Personaje>
-      <Name Code="#E001-E" infoP="Emperor Palpatine"/>
-      <Phrases frases="Now, young Skywalker, you will die."/>
-      <ID ID="18"/>
+      <Name Code="#C001-U" infoP="Count Dooku"/>
+      <Phrases frases="What if I told you that the Republic was now under the control of a Dark Lord of the Sith?"/>
+      <ID ID="17"/>
     </Personaje>
     <Personaje>
-      <Name Code="#Q002-A" infoP="Queen Jamillia"/>
-      <Phrases frases="We must keep our faith in the Republic. The day we stop believing democracy can work is the day we lose it."/>
-      <ID ID="3"/>
+      <Name Code="#L002-A" infoP="Leia Organa"/>
+      <Phrases frases="You know, no matter how much we fought, I’ve always hated watching you leave."/>
+      <ID ID="22"/>
     </Personaje>
     <Personaje>
-      <Name Code="#D003-R" infoP="Darth Vader"/>
-      <Phrases frases="You have failed me for the last time."/>
-      <ID ID="11"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#C004-E" infoP="Chancellor Palpatine"/>
-      <Phrases frases="The dark side of the Force is a pathway to many abilities some consider to be unnatural."/>
-      <ID ID="55"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#Y005-A" infoP="Yoda"/>
-      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
-      <Phrases frases="Death is a natural part of life. Rejoice for those around you who transform into the Force. Mourn them do not. Miss them do not. Attachment leads to jealously. The shadow of greed, that is."/>
-      <ID ID="28"/>
-      <ID ID="31"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#D006-S" infoP="Darth Sidious"/>
-      <Phrases frases="Power! Unlimited power!"/>
-      <ID ID="14"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#M007-L" infoP="Maul"/>
-      <Phrases frases="The Sith took everything from me. Ripped me from my mother’s arms, murdered my brother, used me as a weapon, and then cast me aside. Abandoned me. Once, I had power — now I have nothing"/>
-      <ID ID="15"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#N008-Y" infoP="Nute Gunray"/>
-      <Phrases frases="In time, the suffering of your people will persuade you to see our point of view."/>
-      <ID ID="2"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#A009-O" infoP="Ahsoka Tano"/>
-      <Phrases frases="I am no Jedi."/>
-      <ID ID="47"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#L010-A" infoP="Leia Organa"/>
-      <Phrases frases="Why, you stuck-up, half-witted, scruffy-looking nerf herder!"/>
-      <ID ID="21"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#Y011-E" infoP="Yoda / Luke"/>
-      <Phrases frases="[Luke:] I can’t believe it. [Yoda:] That is why you fail."/>
-      <ID ID="34"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#L012-R" infoP="Luke Skywalker"/>
-      <Phrases frases="I’ll never turn to the dark side. You’ve failed, your highness. I am a Jedi, like my father before me."/>
-      <ID ID="38"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#K013-O" infoP="K-2SO"/>
-      <Phrases frases="Jyn, I’ll be there for you. Cassian said I had to."/>
-      <ID ID="52"/>
+      <Name Code="#P003-A" infoP="Padmé Amidala"/>
+      <Phrases frases="So this is how liberty dies. With thunderous applause."/>
+      <ID ID="40"/>
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
-      <App_Code Code="#E001-E" Key="Emperor Palpatine"/>
+      <App_Code Code="#C001-U" Key="Count Dooku"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Q002-A" Key="Queen Jamillia"/>
+      <App_Code Code="#L002-A" Key="Leia Organa"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#D003-R" Key="Darth Vader"/>
-      <Llamadas Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#C004-E" Key="Chancellor Palpatine"/>
-      <Llamadas Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#Y005-A" Key="Yoda"/>
-      <Llamadas Llamadas="2"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#D006-S" Key="Darth Sidious"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#M007-L" Key="Maul"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#N008-Y" Key="Nute Gunray"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#A009-O" Key="Ahsoka Tano"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#L010-A" Key="Leia Organa"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#Y011-E" Key="Yoda / Luke"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#L012-R" Key="Luke Skywalker"/>
-      <Llamadas Llamadas="1"/>
-    </Personaje>
-    <Personaje>
-      <App_Code Code="#K013-O" Key="K-2SO"/>
+      <App_Code Code="#P003-A" Key="Padmé Amidala"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
   </Diccionario>
-  <Variables contador="13"/>
+  <Variables contador="3"/>
 </Backup>

@@ -42,19 +42,20 @@ def shareF(matrizFrases):
     for pj in matrizFrases:
         for frase in pj[1]:
             lb.insert(END, pj[3] + ":" + frase + " - " + pj[0])
-    obtener=Button(ventana,text="Sacar Frases",command= lambda:sacarLista(lb,destinatario))
+    obtener=Button(ventana,text="Sacar Frases",command= lambda:sacarLista(lb,correo))
     obtener.place(x=400,y=150)
 
 
 def sacarLista(lb,correo):
+    destinatario=correo.get()
     lista = []
     listaFr = lb.curselection()
     for item in listaFr:
         var = lb.get(item)
         lista.append(var)
     print (lista)
-    print (correo)
-    enviarCorreo(lista,correo)
+    print (destinatario)
+    enviarCorreo(lista,destinatario)
     return
 
 def EnviarCorreo(lb):
@@ -87,7 +88,6 @@ try:
     contP.append(cargarContador())
     Tk().withdraw()
     back=messagebox.showinfo("Info Backup","Se encontró un backup, las frases apareceran en pantalla la primer vez que presione el botón de buscar frases")
-
 except:
     noback=messagebox.showinfo("Info Backup","No se encontró un backup")
 top=Tk()
@@ -97,8 +97,11 @@ top.config(bg="gray95")
 top.protocol("WM_DELETE_WINDOW",lambda: preguntarBackup(contP))
 labelinfo=Label(text="Frases Star Wars",font=("Comic Sans",15))
 labelinfo.place(x=33,y=80)
-listbox = Listbox(top,width=100)
+listbox = Listbox(top,width=100, selectmode=BROWSE)
 listbox.place(x=34,y=107)
+for pj in matrizFrases:
+    for frase in pj[1]:
+        listbox.insert(END, pj[3]+":"+frase+ " - " + pj[0])
 etiqueta1= Label(top,text=definirMayor(DiccionarioPersonajes),font=("Comic Sans",15))
 etiqueta1.place(x=33,y=270)
 numeroveces=Entry(top)
