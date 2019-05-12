@@ -6,7 +6,6 @@ import codecs
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from validate_email import validate_email
 from email.mime.base import MIMEBase 
 from email import encoders
 import http.client as httplib

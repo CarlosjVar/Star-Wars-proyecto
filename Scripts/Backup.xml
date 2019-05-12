@@ -16,6 +16,75 @@
       <Phrases frases="So this is how liberty dies. With thunderous applause."/>
       <ID ID="40"/>
     </Personaje>
+    <Personaje>
+      <Name Code="#R004-I" infoP="Riyo Chuchi"/>
+      <Phrases frases="To die for one’s people is a great sacrifice. To live for one’s people, an even greater sacrifice. I choose to live for my people."/>
+      <ID ID="4"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D005-E" infoP="Duchess Satine Kryze"/>
+      <Phrases frases="Remember, my dear Obi-Wan. I’ve loved you always. I always will."/>
+      <ID ID="54"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#M006-L" infoP="Maul"/>
+      <Phrases frases="The Sith took everything from me. Ripped me from my mother’s arms, murdered my brother, used me as a weapon, and then cast me aside. Abandoned me. Once, I had power — now I have nothing"/>
+      <ID ID="15"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#O007-I" infoP="Obi-Wan Kenobi"/>
+      <Phrases frases="The Force will be with you. Always."/>
+      <Phrases frases="If you define yourself by your power to take life, your desire to dominate, to possess, then you have nothing."/>
+      <ID ID="23"/>
+      <ID ID="26"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#K008-O" infoP="K-2SO"/>
+      <Phrases frases="Jyn, I’ll be there for you. Cassian said I had to."/>
+      <ID ID="52"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D009-S" infoP="Darth Sidious"/>
+      <Phrases frases="Power! Unlimited power!"/>
+      <ID ID="14"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#R010-Y" infoP="Rey"/>
+      <Phrases frases="The garbage’ll do!"/>
+      <ID ID="48"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#A011-O" infoP="Ahsoka Tano"/>
+      <Phrases frases="I am no Jedi."/>
+      <ID ID="47"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D012-R" infoP="Darth Vader"/>
+      <Phrases frases="I find your lack of faith disturbing."/>
+      <Phrases frases="This technological terror is nothing compared to the power of the force"/>
+      <ID ID="8"/>
+      <ID ID="13"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#Y013-A" infoP="Yoda"/>
+      <Phrases frases="Train yourself to let go of everything you fear to lose."/>
+      <ID ID="29"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#B014-U" infoP="Bendu"/>
+      <Phrases frases="An object cannot make you good or evil. The temptation of power, forbidden knowledge, even the desire to do good can lead some down that path. But only you can change yourself."/>
+      <ID ID="53"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#C015-E" infoP="Chirrut Îmwe"/>
+      <Phrases frases="I’m one with the Force. The Force is with me."/>
+      <ID ID="50"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#Y016-E" infoP="Yoda / Luke"/>
+      <Phrases frases="[Luke:] I can’t believe it. [Yoda:] That is why you fail."/>
+      <ID ID="34"/>
+    </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
@@ -30,6 +99,58 @@
       <App_Code Code="#P003-A" Key="Padmé Amidala"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
+    <Personaje>
+      <App_Code Code="#R004-I" Key="Riyo Chuchi"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D005-E" Key="Duchess Satine Kryze"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#M006-L" Key="Maul"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#O007-I" Key="Obi-Wan Kenobi"/>
+      <Llamadas Llamadas="3"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#K008-O" Key="K-2SO"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D009-S" Key="Darth Sidious"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#R010-Y" Key="Rey"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#A011-O" Key="Ahsoka Tano"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D012-R" Key="Darth Vader"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Y013-A" Key="Yoda"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#B014-U" Key="Bendu"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#C015-E" Key="Chirrut Îmwe"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Y016-E" Key="Yoda / Luke"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
   </Diccionario>
-  <Variables contador="3"/>
+  <Variables contador="16"/>
 </Backup>
