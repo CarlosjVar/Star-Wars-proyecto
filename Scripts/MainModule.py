@@ -73,7 +73,7 @@ def determinarCita ():
         return False
     cita = diccionario["starWarsQuote"]
     if diccionario["id"]==15:
-        cita=cita.split (". — ")
+        cita=cita.split (". —")
         cita.append(diccionario["id"])
         return cita
     cita = cita.split(" — ")
@@ -207,11 +207,13 @@ def enviarCorreo (matrizFrases,destinatario):
     while True:
         if destinatario==None or destinatario=="":
             msg=messagebox.showinfo("Error","Favor ingresar un correo de destino")
+            os.remove(nombre)
             return
         elif re.match(r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?",destinatario):
             break
         else:
             msg=messagebox.showinfo("Error","El correo ingresado no tiene el formato de una dirección válida")
+            os.remove(nombre)
             return
     msg = MIMEMultipart()
     msg['From'] = "lagalleradepython@gmail.com"
@@ -233,12 +235,13 @@ def enviarCorreo (matrizFrases,destinatario):
             server.sendmail("lagalleradepython@gmail.com",destinatario,text)
         except UnicodeEncodeError:
             msg=messagebox.showinfo("Error","El correo ingresado contiene carácteres no válidos")
+            attachment.close()
             os.remove(nombre) 
             return 
     msg=messagebox.showinfo("Envío de frases","Correo enviado")
     attachment.close()
     os.remove(nombre)
-    return
+    return True
 
 
 def revisarInternet():
@@ -260,7 +263,7 @@ def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
         matrizFrases=Provisional[0]
         return contP
     else:
-        return contP
+        return [contP,False]
 #PP
 # print  ("1 - Sacar frase")
 # print  ("2 - Sacar mayor")
