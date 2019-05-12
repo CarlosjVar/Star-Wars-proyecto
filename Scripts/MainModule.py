@@ -105,12 +105,12 @@ def crearXML(matrizFrases,DiccionarioPersonajes,contP):
             llamadaAPI=ET.SubElement(personaje,"Llamadas",Llamadas=str(DiccionarioPersonajes[key][i+1]))
     variables=ET.SubElement(root,"Variables",contador=str(contP))
     xml=(prettify(root))
-    with open('Backup.xml', "w") as file:
+    with open('Backup.xml', "w",encoding='UTF-8') as file:
         file.write(xml)
     return
 
 def cargarBackup(matrizFrases,DiccionarioPersonajes):
-    with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
+    with codecs.open('Backup.xml', 'r', encoding='UTF-8') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
     for personaje in root.iter("Personaje"):
@@ -121,7 +121,6 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
             lista.append(name.attrib.get("infoP"))
             for frase in personaje.iter("Phrases"):
                 frase = frase.attrib.get("frases")
-                frase = frase.replace("", "’")
                 listaFrases.append(frase)
             lista.append(listaFrases)
             for id in personaje.iter("ID"):
@@ -267,35 +266,6 @@ def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
             return contP
     else:
         return [contP,False]
-#PP
-# print  ("1 - Sacar frase")
-# print  ("2 - Sacar mayor")
-# print  ("3 - Sacar diccionario")
-# print  ("4 - Sacar matriz")
-# print  ("5 - Guardar bakcup")
-# print  ("6 - Cargar bakcup")
-# print  ("7 - Enviar bakcup")
-# print  ("Otra cosa - Salir")
-# while True:
-#     opcion = int(input ("Que quiere hacer?: "))
-#     if opcion==1:
-#         contP=nuevaFrase (matrizFrases,DiccionarioPersonajes,contP)
-#     elif opcion==2:
-#         print(definirMayor(DiccionarioPersonajes))
-#     elif opcion==3:
-#         print (DiccionarioPersonajes)
-#     elif opcion==4:
-#         print (matrizFrases)
-#     elif opcion==5:
-#         crearXML (matrizFrases,DiccionarioPersonajes)
-#     elif opcion==6:
-#         cargarBackup (matrizFrases,DiccionarioPersonajes)
-#         contP=cargarContador(contP)
-#     elif opcion==7:
-#         enviarCorreo (matrizFrases)
-#     else:
-#         break
-
 
 
 

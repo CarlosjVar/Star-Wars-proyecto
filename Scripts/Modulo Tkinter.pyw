@@ -15,7 +15,7 @@ contP=[0]
 def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
     try:
         repet=int(numeroveces.get())
-        if repet>0:
+        if repet>0 and repet<50:
             for i in range(repet):
                 while True:
                     temp=nuevaFrase(matrizFrases, DiccionarioPersonajes, contP[0])
@@ -33,7 +33,7 @@ def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
                     for frase in pj[1]:
                         listbox.insert(END, pj[3]+": "+frase+ " ~ " + pj[0])
         else:
-            msg=messagebox.showinfo("Error","La cantidad de solicitudes debe ser un número mayor o igual a 1")
+            msg=messagebox.showinfo("Error","La cantidad de solicitudes debe ser un número mayor o igual a 1 o menor que 50")
     except ValueError:
         msg=messagebox.showinfo("Error","Debe insertar un número de veces que se solicitarán frases")
         
@@ -108,21 +108,29 @@ def cargarShare():
     ventana.mainloop()
 
 #Programa Principal
-top=Tk()
-top.geometry("1317x325")
-top.title("Frases de Star Wars")
-top.config(bg="gray95")
 try:
     cargarBackup(matrizFrases,DiccionarioPersonajes)
     contP.pop(0)
     contP.append(cargarContador())
     Tk().withdraw()
     back=messagebox.showinfo("Archivo de respaldo","Se encontró un backup previo, se han agregado al listado las frases contenidas en este")
+
 except:
     noback=messagebox.showinfo("Archivo de respaldo","No se ha encontrado un archivo de respaldo")
+
+top=Tk()
+top.geometry("1330x325")
+top.title("Frases de Star Wars")
+top.config(bg="gray95")
 top.protocol("WM_DELETE_WINDOW",lambda: preguntarBackup(contP))
-listbox = Listbox(top,width=217, selectmode=BROWSE)
-listbox.place(x=6,y=40)
+frame=Frame(top)
+frame.place(x=6,y=40)
+listbox = Listbox(frame ,width=217, selectmode=BROWSE)
+listbox.pack(side="left", fill="y")
+scrollbar = Scrollbar(frame, orient="vertical")
+scrollbar.config(command=listbox.yview)
+scrollbar.pack(side="right", fill="y")
+
 for pj in matrizFrases:
     for frase in pj[1]:
         listbox.insert(END, pj[3]+": "+frase+ " ~ " + pj[0])
