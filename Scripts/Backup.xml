@@ -2,70 +2,276 @@
 <Backup>
   <Matriz>
     <Personaje>
-      <Name Code="#D001-R" infoP="Darth Vader"/>
-      <Phrases frases="No. I am your father."/>
-      <ID ID="9"/>
+      <Name Code="#Q001-N" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="Your focus determines your reality."/>
+      <Phrases frases="Secrets must be exposed when found. Detours must be taken when encountered. And if you are the one who stands at the crossroads or the place of concealment, you must never leave it to another to act in your place."/>
+      <Phrases frases="Life does not treat you fairly or unfairly, it merely is. It is up to each of us to be fair, or unfair."/>
+      <Phrases frases="You've been a good apprentice, Obi-Wan, and you're a much wiser man than I am. I foresee you will become a great Jedi Knight."/>
+      <ID ID="42"/>
+      <ID ID="43"/>
+      <ID ID="45"/>
+      <ID ID="44"/>
     </Personaje>
     <Personaje>
-      <Name Code="#Q002-N" infoP="Qui-Gon Jinn"/>
-      <Phrases frases="The ability to speak does not make you intelligent."/>
-      <ID ID="46"/>
-    </Personaje>
-    <Personaje>
-      <Name Code="#Y003-A" infoP="Yoda"/>
+      <Name Code="#Y002-A" infoP="Yoda"/>
+      <Phrases frases="Yes, a Jedi’s strength flows from the Force. But beware of the dark side. Anger, fear, aggression; the dark side of the Force are they. Easily they flow, quick to join you in a fight. If once you start down the dark path, forever will it dominate your destiny, consume you it will, as it did Obi-Wan’s apprentice."/>
+      <Phrases frases="You will know (the good from the bad) when you are calm, at peace. Passive. A Jedi uses the Force for knowledge and defense, never for attack."/>
+      <Phrases frases="Train yourself to let go of everything you fear to lose."/>
       <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
+      <Phrases frases="When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned."/>
+      <Phrases frases="Always pass on what you have learned."/>
+      <Phrases frases="Do. Or do not. There is no try."/>
+      <Phrases frases="Powerful you have become, the dark side I sense in you."/>
+      <Phrases frases="Fear is the path to the dark side. Fear leads to anger; anger leads to hate; hate leads to suffering. I sense much fear in you."/>
+      <ID ID="37"/>
+      <ID ID="33"/>
+      <ID ID="29"/>
       <ID ID="36"/>
+      <ID ID="28"/>
+      <ID ID="32"/>
+      <ID ID="27"/>
+      <ID ID="35"/>
+      <ID ID="30"/>
     </Personaje>
     <Personaje>
-      <Name Code="#A004-R" infoP="Anakin Skywalker"/>
+      <Name Code="#N003-Y" infoP="Nute Gunray"/>
+      <Phrases frases="In time, the suffering of your people will persuade you to see our point of view."/>
+      <ID ID="2"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#H004-O" infoP="Han Solo"/>
+      <Phrases frases="Never tell me the odds!"/>
+      <Phrases frases="It’s the ship that made the Kessel run in less than twelve parsecs. I’ve outrun Imperial starships. Not the local bulk cruisers, mind you. I’m talking about the big Corellian ships, now. She’s fast enough for you, old man."/>
+      <ID ID="7"/>
+      <ID ID="6"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#O005-I" infoP="Obi-Wan Kenobi"/>
+      <Phrases frases="The Force will be with you. Always."/>
+      <Phrases frases="Well, if droids could think, there’d be none of us here, would there?"/>
+      <Phrases frases="If you define yourself by your power to take life, your desire to dominate, to possess, then you have nothing."/>
+      <Phrases frases="You were my brother, Anakin. I loved you."/>
+      <ID ID="23"/>
+      <ID ID="24"/>
+      <ID ID="26"/>
+      <ID ID="25"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#L006-A" infoP="Leia Organa"/>
+      <Phrases frases="Why, you stuck-up, half-witted, scruffy-looking nerf herder!"/>
+      <Phrases frases="Help me, Obi-Wan Kenobi. You’re my only hope."/>
+      <Phrases frases="Hope."/>
+      <Phrases frases="You know, no matter how much we fought, I’ve always hated watching you leave."/>
+      <ID ID="21"/>
+      <ID ID="19"/>
+      <ID ID="20"/>
+      <ID ID="22"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D007-R" infoP="Darth Vader"/>
+      <Phrases frases="I find your lack of faith disturbing."/>
+      <Phrases frases="This technological terror is nothing compared to the power of the force"/>
+      <Phrases frases="I sense something. A presence I have not felt since…. (A New Hope)"/>
+      <Phrases frases="No. I am your father."/>
+      <Phrases frases="You have failed me for the last time."/>
+      <ID ID="8"/>
+      <ID ID="13"/>
+      <ID ID="12"/>
+      <ID ID="9"/>
+      <ID ID="11"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#A008-R" infoP="Anakin Skywalker"/>
       <Phrases frases="Just for once, let me look on you with my own eyes."/>
       <ID ID="39"/>
     </Personaje>
     <Personaje>
-      <Name Code="#D005-E" infoP="Darth Bane"/>
-      <Phrases frases="The Sith killed each other, victims of their own greed. But from the ashes of their destruction, I was the last survivor. I chose to pass my knowledge on to only one. I created a legacy so resilient that now you come before me."/>
-      <ID ID="16"/>
+      <Name Code="#L009-R" infoP="Luke Skywalker"/>
+      <Phrases frases="I’ll never turn to the dark side. You’ve failed, your highness. I am a Jedi, like my father before me."/>
+      <ID ID="38"/>
     </Personaje>
     <Personaje>
-      <Name Code="#H006-O" infoP="Han Solo"/>
-      <Phrases frases="Chewie, we’re home."/>
-      <ID ID="5"/>
+      <Name Code="#C010-O" infoP="C-3PO"/>
+      <Phrases frases="Oh, my dear friend. How I’ve missed you."/>
+      <ID ID="49"/>
     </Personaje>
     <Personaje>
-      <Name Code="#C007-E" infoP="Chancellor Palpatine"/>
+      <Name Code="#Y011-E" infoP="Yoda / Luke"/>
+      <Phrases frases="[Luke:] I can’t believe it. [Yoda:] That is why you fail."/>
+      <ID ID="34"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#A012-O" infoP="Ahsoka Tano"/>
+      <Phrases frases="I am no Jedi."/>
+      <ID ID="47"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#Q013-A" infoP="Queen Jamillia"/>
+      <Phrases frases="We must keep our faith in the Republic. The day we stop believing democracy can work is the day we lose it."/>
+      <ID ID="3"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#M014-L" infoP="Maul"/>
+      <Phrases frases="The Sith took everything from me. Ripped me from my mother’s arms, murdered my brother, used me as a weapon, and then cast me aside. Abandoned me. Once, I had power — now I have nothing"/>
+      <ID ID="15"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D015-E" infoP="Duchess Satine Kryze"/>
+      <Phrases frases="Remember, my dear Obi-Wan. I’ve loved you always. I always will."/>
+      <ID ID="54"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#C016-E" infoP="Chancellor Palpatine"/>
       <Phrases frases="The dark side of the Force is a pathway to many abilities some consider to be unnatural."/>
       <ID ID="55"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#J017-T" infoP="Jango Fett"/>
+      <Phrases frases="I’m just a simple man trying to make my way in the universe."/>
+      <ID ID="1"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#B018-U" infoP="Bendu"/>
+      <Phrases frases="An object cannot make you good or evil. The temptation of power, forbidden knowledge, even the desire to do good can lead some down that path. But only you can change yourself."/>
+      <ID ID="53"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#R019-Y" infoP="Rey"/>
+      <Phrases frases="The garbage’ll do!"/>
+      <ID ID="48"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#C020-R" infoP="Cassian Andor"/>
+      <Phrases frases="Every time I walked away from something I wanted to forget, I told myself it was for a cause that I believed in. A cause that was worth it. Without that, we’re lost."/>
+      <ID ID="51"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#K021-O" infoP="K-2SO"/>
+      <Phrases frases="Jyn, I’ll be there for you. Cassian said I had to."/>
+      <ID ID="52"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D022-S" infoP="Darth Sidious"/>
+      <Phrases frases="Power! Unlimited power!"/>
+      <ID ID="14"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#E023-E" infoP="Emperor Palpatine"/>
+      <Phrases frases="Now, young Skywalker, you will die."/>
+      <ID ID="18"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#C024-U" infoP="Count Dooku"/>
+      <Phrases frases="What if I told you that the Republic was now under the control of a Dark Lord of the Sith?"/>
+      <ID ID="17"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#P025-A" infoP="Padmé Amidala"/>
+      <Phrases frases="So this is how liberty dies. With thunderous applause."/>
+      <ID ID="40"/>
     </Personaje>
   </Matriz>
   <Diccionario>
     <Personaje>
-      <App_Code Code="#D001-R" Key="Darth Vader"/>
-      <Llamadas Llamadas="1"/>
+      <App_Code Code="#Q001-N" Key="Qui-Gon Jinn"/>
+      <Llamadas Llamadas="10"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Q002-N" Key="Qui-Gon Jinn"/>
+      <App_Code Code="#Y002-A" Key="Yoda"/>
+      <Llamadas Llamadas="17"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#N003-Y" Key="Nute Gunray"/>
+      <Llamadas Llamadas="4"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#H004-O" Key="Han Solo"/>
+      <Llamadas Llamadas="9"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#O005-I" Key="Obi-Wan Kenobi"/>
+      <Llamadas Llamadas="9"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#L006-A" Key="Leia Organa"/>
+      <Llamadas Llamadas="11"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D007-R" Key="Darth Vader"/>
+      <Llamadas Llamadas="9"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#A008-R" Key="Anakin Skywalker"/>
+      <Llamadas Llamadas="3"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#L009-R" Key="Luke Skywalker"/>
       <Llamadas Llamadas="2"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#Y003-A" Key="Yoda"/>
+      <App_Code Code="#C010-O" Key="C-3PO"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Y011-E" Key="Yoda / Luke"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#A012-O" Key="Ahsoka Tano"/>
+      <Llamadas Llamadas="3"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Q013-A" Key="Queen Jamillia"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#M014-L" Key="Maul"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D015-E" Key="Duchess Satine Kryze"/>
+      <Llamadas Llamadas="4"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#C016-E" Key="Chancellor Palpatine"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#J017-T" Key="Jango Fett"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#B018-U" Key="Bendu"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#A004-R" Key="Anakin Skywalker"/>
+      <App_Code Code="#R019-Y" Key="Rey"/>
+      <Llamadas Llamadas="4"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#C020-R" Key="Cassian Andor"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#K021-O" Key="K-2SO"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#D005-E" Key="Darth Bane"/>
+      <App_Code Code="#D022-S" Key="Darth Sidious"/>
+      <Llamadas Llamadas="3"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#E023-E" Key="Emperor Palpatine"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#H006-O" Key="Han Solo"/>
-      <Llamadas Llamadas="1"/>
+      <App_Code Code="#C024-U" Key="Count Dooku"/>
+      <Llamadas Llamadas="2"/>
     </Personaje>
     <Personaje>
-      <App_Code Code="#C007-E" Key="Chancellor Palpatine"/>
+      <App_Code Code="#P025-A" Key="Padmé Amidala"/>
       <Llamadas Llamadas="1"/>
     </Personaje>
   </Diccionario>
-  <Variables contador="7"/>
+  <Variables contador="25"/>
 </Backup>
