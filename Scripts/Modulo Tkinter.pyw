@@ -34,7 +34,6 @@ def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
                 dividirFrases (matrizFrases,listbox,etiqueta1,contP,(repet-25))
         else:
             msg=messagebox.showinfo("Error","La cantidad de solicitudes debe ser un número mayor o igual a 1 y menor o igual a 50")
-            sonidoError()
     except ValueError:
         msg=messagebox.showinfo("Error","Debe insertar un número de veces que se solicitarán frases")
     return
@@ -48,7 +47,7 @@ def BotonDeCompartir(matrizFrases):
     ventana=Tk()
     ventana.geometry("1330x270")
     ventana.title("Compartir Frases")
-    ventana.resizable(width=False, height=False)
+    ventana.iconbitmap("icono.ico")
     frame = Frame(ventana)
     frame.place(x=6, y=40)
     frasesCompartir=Listbox(frame,width=217,selectmode=MULTIPLE)
@@ -102,9 +101,9 @@ def BotonDeCargarShare():
     Salidas: N/A
     """
     ventana = Tk()
-    ventana.geometry("680x280")
+    ventana.geometry("680x280+10+500")
     ventana.title("Frases Compartidas")
-    ventana.resizable(width=False, height=False)
+    ventana.iconbitmap("icono.ico")
     frame2 = Frame(ventana)
     frame2.place(x=6, y=40)
     lbe = Listbox(frame2, width=100, selectmode=SINGLE)
@@ -200,7 +199,6 @@ top.geometry("1330x325")
 top.title("Frases de Star Wars")
 top.config(bg="gray95")
 top.protocol("WM_DELETE_WINDOW",lambda: preguntarBackup(contP))
-top.resizable(width=False,height=False)
 top.iconbitmap("icono.ico")
 frame=Frame(top)
 frame.place(x=6,y=40)
