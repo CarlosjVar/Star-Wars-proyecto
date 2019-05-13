@@ -1,3 +1,10 @@
+###################################################################
+#Elaborado por: Carlos Varela y Joseph Tenorio
+#Fecha de creación: 28/04/2019
+#Fecha de última de modificación: 13/05/2019
+#Versión: 3.7.3
+###################################################################
+
 #Importacón de librerías
 import xml.etree.ElementTree as ET
 import requests
@@ -19,8 +26,12 @@ from tkinter.filedialog import askopenfilename
 
 
 #Definición de funciones
-
 def obtenerFrase ():
+    """
+    Funcionamiento: Llama a la verificación de conexión a internet y realiza la llamada a la API
+    Entradas: N/A
+    Salidas: Un booleano equivalente a False en caso de error, o la variable respuesta (dict) si el proceso fue exitoso 
+    """
     while True:
         if revisarInternet()==True:
             break
@@ -38,6 +49,11 @@ def obtenerFrase ():
         return False
 
 def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
+    """
+    Funcionamiento:
+    Entradas: DiccionarioPersonajes (dict), contP (int), cita(list)
+    Salidas: Una lista que incluye a DiccionarioPersonajes (dict) y contP (int)
+    """
     personaje=cita[1]
     if personaje not in DiccionarioPersonajes.keys():
         contP+=1
@@ -51,6 +67,11 @@ def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
     return [DiccionarioPersonajes,contP]
 
 def montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP):
+    """
+    Funcionamiento:
+    Entradas: matrizFrases (list), cita (str), DiccionarioPersonajes (dict), contP (int)
+    Salidas: Una lista que contiene a matrizFrases(list) y los datos del personaje
+    """
     if cita == False:
         return
     diccionario=montarEnDicccionario(DiccionarioPersonajes,contP,cita)
@@ -68,6 +89,11 @@ def montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP):
     return [matrizFrases,diccionario[0],diccionario[1]]
     
 def determinarCita ():
+    """
+    Funcionamiento: Realiza la llamada a la API y organiza la variable "cita", usada por otras funciones
+    Entradas: N/A
+    Salidas: Un booleano equivalente a False si la llamada falló, o la cita (list) solicitada
+    """
     diccionario = obtenerFrase()
     if diccionario == False:
         return False
@@ -88,6 +114,11 @@ def determinarCita ():
     return cita
 
 def crearXML(matrizFrases,DiccionarioPersonajes,contP):
+    """
+    Funcionamiento:
+    Entradas: 
+    Salidas:
+    """
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
     for lista in matrizFrases:
@@ -110,6 +141,11 @@ def crearXML(matrizFrases,DiccionarioPersonajes,contP):
     return
 
 def cargarBackup(matrizFrases,DiccionarioPersonajes):
+    """
+    Funcionamiento:
+    Entradas:
+    Salidas:
+    """
     with codecs.open('Backup.xml', 'r', encoding='UTF-8') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
@@ -140,6 +176,11 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
     return
 
 def cargarContador():
+    """
+    Funcionamiento:
+    Entradas:
+    Salidas:
+    """
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
@@ -149,11 +190,21 @@ def cargarContador():
 
 
 def prettify(elem):
-        rough_string = ET.tostring(elem, 'utf-8')
-        reparsed = minidom.parseString(rough_string)
-        return reparsed.toprettyxml(indent="  ")
+    """
+    Funcionamiento:
+    Entradas:
+    Salidas:
+    """
+    rough_string = ET.tostring(elem, 'utf-8')
+    reparsed = minidom.parseString(rough_string)
+    return reparsed.toprettyxml(indent="  ")
     
 def shareBackup(lista):
+    """
+    Funcionamiento:
+    Entradas:
+    Salidas:
+    """
     fecha = str(datetime.datetime.now())
     fecha = fecha[0:19].replace(":", "-").replace(" ", "-")
     root=ET.Element("Share")
@@ -167,6 +218,11 @@ def shareBackup(lista):
     return archivo
 
 def cargarShareXML(archivo):
+    """
+    Funcionamiento:
+    Entradas:
+    Salidas:
+    """
     listaFra=[]
     with codecs.open(archivo, 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
@@ -181,6 +237,11 @@ def cargarShareXML(archivo):
         
 
 def definirMayor (DiccionarioPersonajes):
+    """
+    Funcionamiento: Determina el personaje con mayor cantidad de frases recibidas desde la API
+    Entradas: DiccionarioPersonajes (dict)
+    Salidas: Un string indicando si no se han solicitado frases o el personaje con más resultados
+    """
     mayor=0
     resul=""
     for key in DiccionarioPersonajes:
@@ -195,15 +256,20 @@ def definirMayor (DiccionarioPersonajes):
         return "El o los personajes con más resultados: "+resul
 
 def enviarCorreo (matrizFrases,destinatario):
-    while True:
+    """
+    Funcionamiento: Envía un correo con al destinatario indicado, el cual incluye la lista de frases indicada
+    Entradas: matrizFrases (list), destinatario (str)
+    Salidas: Un booleano equivalente a True si el proceso fue exitoso, N/A en caso contrario
+    """
+    while True:                                 #Verificación de conexión a internet
         if revisarInternet()==True:
             break
         else:
             msg=messagebox.showinfo("Error","No hay conexión a internet")
             return
-    nombre = shareBackup(matrizFrases)
-    context = ssl.create_default_context()
-    while True:
+    nombre = shareBackup(matrizFrases)          #Llamada a shareBackup
+    context = ssl.create_default_context()      
+    while True:                                 #Verificación de destinatario válido                
         if destinatario==None or destinatario=="":
             msg=messagebox.showinfo("Error","Favor ingresar un correo de destino")
             os.remove(nombre)
@@ -214,13 +280,13 @@ def enviarCorreo (matrizFrases,destinatario):
             msg=messagebox.showinfo("Error","El correo ingresado no tiene el formato de una dirección válida")
             os.remove(nombre)
             return
-    msg = MIMEMultipart()
+    msg = MIMEMultipart()                       #Creación de elemento "mensaje"
     msg['From'] = "lagalleradepython@gmail.com"
     msg['To'] = destinatario
     msg['Subject'] = "Citas de StarWars"
     mensaje = "Alguien desea compartir las siguientes citas de StarWars contigo"
-    msg.attach(MIMEText(mensaje, 'plain'))
-    filename = nombre
+    msg.attach(MIMEText(mensaje, 'plain'))      #Se une la variable mensaje al objeto antes creado
+    filename = nombre                           
     attachment = open(nombre, "rb")
     p = MIMEBase('application', 'octet-stream')
     p.set_payload((attachment).read())
@@ -228,22 +294,27 @@ def enviarCorreo (matrizFrases,destinatario):
     p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
     msg.attach(p)
     text = msg.as_string()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server: #Conexión con el servidor de gmail
         try:
-            server.login("lagalleradepython@gmail.com", "Joseph20*")
+            server.login("lagalleradepython@gmail.com", "Joseph20*")        
             server.sendmail("lagalleradepython@gmail.com",destinatario,text)
-        except UnicodeEncodeError:
+        except UnicodeEncodeError:                                          #Validación de error por carácteres inválidos
             msg=messagebox.showinfo("Error","El correo ingresado contiene carácteres no válidos")
             attachment.close()
             os.remove(nombre) 
             return 
     msg=messagebox.showinfo("Envío de frases","Correo enviado")
-    attachment.close()
-    os.remove(nombre)
+    attachment.close()                      #Cierre del xml creado
+    os.remove(nombre)                       #Eliminación del xml creado
     return True
 
 
 def revisarInternet():
+    """
+    Funcionamiento: Verifica la conexión a internet del dispositivo
+    Entradas: N/A
+    Salidas: Un valor booleano, True si se verifica la conexión y False en cualquier otro caso
+    """
     conn = httplib.HTTPConnection("www.google.com", timeout=4)
     try:
         conn.request("HEAD", "/")
@@ -254,6 +325,11 @@ def revisarInternet():
         return False
 
 def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
+    """
+    Funcionamiento: Función encargada de coordinar las funciones que llaman a la API y organizan el resultado
+    Entradas: matrizFrases (list), DiccionarioPersonajes (dict), contP (int)
+    Salidas: Una tupla en caso de frase repetida, una lista en caso de error en la llamada, y un entero si el proceso fue exitoso
+    """
     cita=determinarCita()
     if cita!=False:
         Provisional=montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP)
@@ -266,6 +342,7 @@ def nuevaFrase (matrizFrases,DiccionarioPersonajes,contP):
             return contP
     else:
         return [contP,False]
+
 
 
 

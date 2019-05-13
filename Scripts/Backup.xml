@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<Backup>
+  <Matriz>
+    <Personaje>
+      <Name Code="#D001-R" infoP="Darth Vader"/>
+      <Phrases frases="No. I am your father."/>
+      <ID ID="9"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#Q002-N" infoP="Qui-Gon Jinn"/>
+      <Phrases frases="The ability to speak does not make you intelligent."/>
+      <ID ID="46"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#Y003-A" infoP="Yoda"/>
+      <Phrases frases="PATIENCE YOU MUST HAVE my young padawan"/>
+      <ID ID="36"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#A004-R" infoP="Anakin Skywalker"/>
+      <Phrases frases="Just for once, let me look on you with my own eyes."/>
+      <ID ID="39"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#D005-E" infoP="Darth Bane"/>
+      <Phrases frases="The Sith killed each other, victims of their own greed. But from the ashes of their destruction, I was the last survivor. I chose to pass my knowledge on to only one. I created a legacy so resilient that now you come before me."/>
+      <ID ID="16"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#H006-O" infoP="Han Solo"/>
+      <Phrases frases="Chewie, we’re home."/>
+      <ID ID="5"/>
+    </Personaje>
+    <Personaje>
+      <Name Code="#C007-E" infoP="Chancellor Palpatine"/>
+      <Phrases frases="The dark side of the Force is a pathway to many abilities some consider to be unnatural."/>
+      <ID ID="55"/>
+    </Personaje>
+  </Matriz>
+  <Diccionario>
+    <Personaje>
+      <App_Code Code="#D001-R" Key="Darth Vader"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Q002-N" Key="Qui-Gon Jinn"/>
+      <Llamadas Llamadas="2"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#Y003-A" Key="Yoda"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#A004-R" Key="Anakin Skywalker"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#D005-E" Key="Darth Bane"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#H006-O" Key="Han Solo"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+    <Personaje>
+      <App_Code Code="#C007-E" Key="Chancellor Palpatine"/>
+      <Llamadas Llamadas="1"/>
+    </Personaje>
+  </Diccionario>
+  <Variables contador="7"/>
+</Backup>
