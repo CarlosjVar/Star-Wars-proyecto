@@ -9,6 +9,7 @@
 from MainModule import *
 from tkinter.filedialog import askopenfilename
 import os
+import winsound
 
 
 #Definiciión de variables globales
@@ -33,6 +34,7 @@ def BotonDeSolicitar(matrizFrases,listbox,etiqueta1,contP):
                 dividirFrases (matrizFrases,listbox,etiqueta1,contP,(repet-25))
         else:
             msg=messagebox.showinfo("Error","La cantidad de solicitudes debe ser un número mayor o igual a 1 y menor o igual a 50")
+            sonidoError()
     except ValueError:
         msg=messagebox.showinfo("Error","Debe insertar un número de veces que se solicitarán frases")
     return
@@ -44,10 +46,16 @@ def BotonDeCompartir(matrizFrases):
     Salidas: N/A
     """
     ventana=Tk()
-    ventana.geometry("1317x270")
+    ventana.geometry("1330x270")
     ventana.title("Compartir Frases")
-    frasesCompartir=Listbox(ventana,width=217,selectmode=MULTIPLE)
-    frasesCompartir.place(x=6,y=40)
+    ventana.resizable(width=False, height=False)
+    frame = Frame(ventana)
+    frame.place(x=6, y=40)
+    frasesCompartir=Listbox(frame,width=217,selectmode=MULTIPLE)
+    frasesCompartir.pack(side="left", fill="y")
+    scrollbar = Scrollbar(frame, orient="vertical")
+    scrollbar.config(command=frasesCompartir.yview)
+    scrollbar.pack(side="right", fill="y")
     correo=Entry(ventana,width=50)
     correo.place(x=335,y=215)
     etiqueta5=Label(ventana,text="Seleccione las frases que desea compartir: ",font=("Comic Sans",11))
@@ -94,12 +102,18 @@ def BotonDeCargarShare():
     Salidas: N/A
     """
     ventana = Tk()
-    ventana.geometry("800x350")
+    ventana.geometry("680x280")
     ventana.title("Frases Compartidas")
+    ventana.resizable(width=False, height=False)
+    frame2 = Frame(ventana)
+    frame2.place(x=6, y=40)
+    lbe = Listbox(frame2, width=100, selectmode=SINGLE)
+    lbe.pack(side="left", fill="y")
+    scrollbar = Scrollbar(frame2, orient="vertical")
+    scrollbar.config(command=lbe.yview)
+    scrollbar.pack(side="right", fill="y")
     etiqueta2=Label(ventana,text="Un usuario de ¨Frases de Star Wars¨ decidió compartir estas frases contigo",font=("Comic Sans",15))
-    etiqueta2.place(x=34,y=70)
-    lbe = Listbox(ventana, width=100, selectmode=SINGLE)
-    lbe.place(x=34, y=107)
+    etiqueta2.place(x=5,y=10)
     filename = askopenfilename()
     try:
         lista=cargarShareXML(filename)
@@ -186,6 +200,8 @@ top.geometry("1330x325")
 top.title("Frases de Star Wars")
 top.config(bg="gray95")
 top.protocol("WM_DELETE_WINDOW",lambda: preguntarBackup(contP))
+top.resizable(width=False,height=False)
+top.iconbitmap("icono.ico")
 frame=Frame(top)
 frame.place(x=6,y=40)
 listbox = Listbox(frame ,width=217, selectmode=BROWSE)

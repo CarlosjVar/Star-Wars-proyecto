@@ -115,9 +115,9 @@ def determinarCita ():
 
 def crearXML(matrizFrases,DiccionarioPersonajes,contP):
     """
-    Funcionamiento:
-    Entradas: 
-    Salidas:
+    Funcionamiento:Crea el xml a partir de los datos del programa
+    Entradas: matrizFrases,DiccionarioPersonajes,contP
+    Salidas:XML
     """
     root=ET.Element("Backup")
     matriz=ET.SubElement(root,"Matriz")
@@ -142,9 +142,9 @@ def crearXML(matrizFrases,DiccionarioPersonajes,contP):
 
 def cargarBackup(matrizFrases,DiccionarioPersonajes):
     """
-    Funcionamiento:
-    Entradas:
-    Salidas:
+    Funcionamiento:Carga la matriz y diccionario a partir de un xml
+    Entradas:matrizFrases,DiccionarioPersonajes
+    Salidas:matrizFrases,DiccionarioPersonajes aunque no aparezca
     """
     with codecs.open('Backup.xml', 'r', encoding='UTF-8') as xml:
         tree = ET.parse(xml)
@@ -177,9 +177,9 @@ def cargarBackup(matrizFrases,DiccionarioPersonajes):
 
 def cargarContador():
     """
-    Funcionamiento:
-    Entradas:
-    Salidas:
+    Funcionamiento:carga el contador global usado en la creación de códigos de personaje
+    Entradas:NA
+    Salidas:ContP1
     """
     with codecs.open('Backup.xml', 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
@@ -191,9 +191,9 @@ def cargarContador():
 
 def prettify(elem):
     """
-    Funcionamiento:
-    Entradas:
-    Salidas:
+    Funcionamiento:Ordena del xml de forma más legible
+    Entradas:elem
+    Salidas:elem reparseado de manera legible
     """
     rough_string = ET.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
@@ -201,9 +201,9 @@ def prettify(elem):
     
 def shareBackup(lista):
     """
-    Funcionamiento:
-    Entradas:
-    Salidas:
+    Funcionamiento:Crea el xml para el share
+    Entradas:lista(de frases seleccionadas por el usuario)
+    Salidas:archivo(xml)
     """
     fecha = str(datetime.datetime.now())
     fecha = fecha[0:19].replace(":", "-").replace(" ", "-")
@@ -219,9 +219,9 @@ def shareBackup(lista):
 
 def cargarShareXML(archivo):
     """
-    Funcionamiento:
-    Entradas:
-    Salidas:
+    Funcionamiento:carga el xml del share
+    Entradas:archivo(xml)
+    Salidas:listaFra(lista de frases del xml)
     """
     listaFra=[]
     with codecs.open(archivo, 'r', encoding='latin-1') as xml:
