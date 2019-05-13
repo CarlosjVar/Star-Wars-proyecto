@@ -191,7 +191,7 @@ def cargarContador():
 
 def prettify(elem):
     """
-    Funcionamiento:Ordena del xml de forma más legible
+    Funcionamiento:Ordena el xml de forma más legible
     Entradas:elem
     Salidas:elem reparseado de manera legible
     """
@@ -227,12 +227,10 @@ def cargarShareXML(archivo):
     with codecs.open(archivo, 'r', encoding='latin-1') as xml:
         tree = ET.parse(xml)
     root = tree.getroot()
-    ET.dump(tree)
     for frase in root.iter("Frase"):
         frase = frase.attrib.get("Phrase")
         frase = frase.replace("", "’")
         listaFra.append(frase)
-    print(listaFra)
     return listaFra
         
 

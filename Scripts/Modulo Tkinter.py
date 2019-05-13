@@ -9,8 +9,6 @@
 from MainModule import *
 from tkinter.filedialog import askopenfilename
 import os
-import winsound
-
 
 #Definiciión de variables globales
 matrizFrases = []
@@ -49,6 +47,7 @@ def BotonDeCompartir(matrizFrases):
     ventana.geometry("1330x270")
     ventana.title("Compartir Frases")
     ventana.resizable(width=False, height=False)
+    ventana.iconbitmap("icono.ico")
     frame = Frame(ventana)
     frame.place(x=6, y=40)
     frasesCompartir=Listbox(frame,width=217,selectmode=MULTIPLE)
@@ -105,6 +104,7 @@ def BotonDeCargarShare():
     ventana.geometry("680x280")
     ventana.title("Frases Compartidas")
     ventana.resizable(width=False, height=False)
+    ventana.iconbitmap("icono.ico")
     frame2 = Frame(ventana)
     frame2.place(x=6, y=40)
     lbe = Listbox(frame2, width=100, selectmode=SINGLE)
