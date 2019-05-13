@@ -102,9 +102,10 @@ def BotonDeCargarShare():
     Salidas: N/A
     """
     ventana = Tk()
-    ventana.geometry("680x280")
+    ventana.geometry("680x280+140+550")
     ventana.title("Frases Compartidas")
     ventana.resizable(width=False, height=False)
+    ventana.lift
     frame2 = Frame(ventana)
     frame2.place(x=6, y=40)
     lbe = Listbox(frame2, width=100, selectmode=SINGLE)
