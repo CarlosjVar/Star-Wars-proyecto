@@ -50,7 +50,7 @@ def obtenerFrase ():
 
 def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
     """
-    Funcionamiento:
+    Funcionamiento: Inserta en el diccionario global la información de la cita obtenida
     Entradas: DiccionarioPersonajes (dict), contP (int), cita(list)
     Salidas: Una lista que incluye a DiccionarioPersonajes (dict) y contP (int)
     """
@@ -68,7 +68,7 @@ def montarEnDicccionario(DiccionarioPersonajes,contP,cita):
 
 def montarEnMatriz (matrizFrases,cita,DiccionarioPersonajes,contP):
     """
-    Funcionamiento:
+    Funcionamiento: Inserta en la matriz global la información de la cita obtenida
     Entradas: matrizFrases (list), cita (str), DiccionarioPersonajes (dict), contP (int)
     Salidas: Una lista que contiene a matrizFrases(list) y los datos del personaje
     """
